@@ -16,4 +16,5 @@ create a new repository within your account which already got a Authentication T
 ##### $ `git remote add origin git@github.com:'USERNAME'/'projectname'.git`
 ##### $ `git push -u origin master`
 ------
-        REFERENCE:[http://stackoverflow.com/questions/2423777/is-it-possible-to-create-a-remote-repo-on-github-from-the-cli-without-ssh](http://stackoverflow.com/questions/2423777/is-it-possible-to-create-a-remote-repo-on-github-from-the-cli-without-ssh)
+REFERENCE:
+[http://stackoverflow.com/questions/2423777/is-it-possible-to-create-a-remote-repo-on-github-from-the-cli-without-ssh](http://stackoverflow.com/questions/2423777/is-it-possible-to-create-a-remote-repo-on-github-from-the-cli-without-ssh)
