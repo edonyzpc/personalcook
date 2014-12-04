@@ -1,18 +1,19 @@
 ##### .md文件格式编辑
 
-转载自[http://blog.csdn.net/kaitiren/article/details/38513715](http://blog.csdn.net/kaitiren/article/details/38513715)
+###### 转载自[http://blog.csdn.net/kaitiren/article/details/38513715](http://blog.csdn.net/kaitiren/article/details/38513715)
 --------
 md是markdown的缩写，markdown是一种编辑博客的语言。用惯了可视化的博客编辑器（比如CSDN博客，囧），<br>
 这种编程式的博客编辑方案着实让人眼前一亮。不过GitHub支持的语法在标准markdown语法的基础上做了修改，<br>
-称为Github Flavored Markdown，简称GFM。可不是[GFW](http://baike.baidu.com/link?url=-Rv9pbmmc0s_FyL7izxb-bggGPNhLJwJ-yMF1itfS6fdJmP7COjY-MhZGMEYp8ytWouGP-G2nzITt7j85Pb_y-hfG9UHgkFRC0Tc9mjOmAW)呀!
+称为Github Flavored Markdown，简称GFM。<br>
+###### 可不是[GFW](http://baike.baidu.com/link?url=-Rv9pbmmc0s_FyL7izxb-bggGPNhLJwJ-yMF1itfS6fdJmP7COjY-MhZGMEYp8ytWouGP-G2nzITt7j85Pb_y-hfG9UHgkFRC0Tc9mjOmAW)呀!<br>
 --------
 ##### 关于标题
 
 规范的README文件开头都写上一个标题，这被称为大标题。<br>
 在文本下面加上 等于号 = ，那么上方的文本就变成了大标题。等于号的个数无限制，但一定要大于0个哦。
-![](https://github.com/edonyM/personalcook/raw/master/pic/1.png)
+![](https://github.com/edonyM/personalcook/blob/master/pic/1.PNG)
 比大标题低一级的是中标题，也就是显示出来比大标题小点。 在文本下面加上 下划线 - ，那么上方的文本就变成了中标题，同样的 下划线个数无限制。<br>
-![](https://github.com/edonyM/personalcook/raw/master/pic/2.png)
+![](https://github.com/edonyM/personalcook/blob/master/pic/2.png)
 除此之外，你也会发现大，中标题下面都有一条横线，没错这就是 = 和 - 的显示结果。<br>
 如果你只输入了等于号=，但其上方无文字，那么就只会显示一条直线。如果上方有了文字，但你又只想显示一条横线，而不想把上方的文字转义成大标题的话，那么你就要在等于号=和文字直接补一个空行。<br>
 补空行：是很常用的用法，当你不想上下两个不同的布局方式交错到一起的时候，就要在两种布局之间补一个空行。<br>
@@ -21,9 +22,9 @@ md是markdown的缩写，markdown是一种编辑博客的语言。用惯了可�
  同减号作用相同的还有星号*和下划线_，同样的这两者符号也要写三个以上才能显示一条虚横线。<br>
 除此以外，关于标题还有等级表示法，分为六个等级，显示的文本大小依次减小。<br>
  不同等级之间是以井号  #  的个数来标识的。一级标题有一个 #，二级标题有两个# ，以此类推。
-![](https://github.com/edonyM/personalcook/raw/master/pic/3.png)
+![](https://github.com/edonyM/personalcook/blob/master/pic/3.png)
 注意井号#和标题名称要并排写作一行，显示效果如图：
-![](https://github.com/edonyM/personalcook/raw/master/pic/4.png)
+![](https://github.com/edonyM/personalcook/blob/master/pic/4.png)
 --------
 ##### 显示文本
 
@@ -55,10 +56,10 @@ md是markdown的缩写，markdown是一种编辑博客的语言。用惯了可�
 
 缩进的含义是很容易理解的。
 
-![](https://github.com/edonyM/personalcook/raw/master/pic/8.png)<br>
+![](https://github.com/edonyM/personalcook/blob/master/pic/8.png)<br>
 当然比这个更一般的用法是这样。常常能在书籍里面看到的效果，比如引用别人的文章。直接看效果。
 
-![](https://github.com/edonyM/personalcook/raw/master/pic/9.png)<br>
+![](https://github.com/edonyM/personalcook/blob/master/pic/9.png)<br>
 
 ##### 插入图片
 ###### 来源于网络的图片
@@ -87,6 +88,6 @@ md是markdown的缩写，markdown是一种编辑博客的语言。用惯了可�
 
 我们需要在代码的上一行和下一行用` `` 标记。``` 不是三个单引号，而是数字1左边，Tab键上面的键。要实现语法高亮那么只要在 ``` 之后加上你的编程语言即可(忽略大小写),c++可以写成c++或者cpp。
 
-![](https://github.com/edonyM/personalcook/raw/master/pic/6.png)<br>
+![](https://github.com/edonyM/personalcook/blob/master/pic/6.png)<br>
 
-![](https://github.com/edonyM/personalcook/raw/master/pic/7.png)<br>
+![](https://github.com/edonyM/personalcook/blob/master/pic/7.png)<br>
