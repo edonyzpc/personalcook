@@ -1,5 +1,5 @@
-##### class template
-###### class template definition:<br>
+#### class template
+##### class template definition:<br>
 ```cpp
 //declare
 template <class T>//or <typename T>
@@ -20,7 +20,7 @@ void name::func()
 //...
 ```
 ------
-###### class template instantiation:<br>
+##### class template instantiation:<br>
 when instantiating a template, the compiler creates a new class with the given template argument. For example:<br>
 ```cpp
 template<typename T>
@@ -77,12 +77,32 @@ template <typename T> struct Foo {...};
 //----------------------
 //Foo.cpp
 
-//implementation of Foo\'s methods
+//implementation of Foo's methods
 
 //explicit instantiation
 template class Foo<int>;
 template class Foo<float>;
 // You will only be able to use Foo with int or float
 ```
+Of course, there is another way to do explicit instantiation class template:
 
+```cpp
+// Foo.h
+
+// no implementation
+template <typename T> struct Foo {...};
+
+//----------------------
+//Foo.cpp
+
+//implementation of Foo's methods
+
+//----------------------
+//Fooint.cpp
+//add this file when you compile this class template
+#include "Foo.cpp"
+//explicit instantiation
+template class Foo<int>;
+template class Foo<float>;
+```
 ###### reference:[Stackoverflow](http://stackoverflow.com/questions/495021/why-can-templates-only-be-implemented-in-the-header-file)
