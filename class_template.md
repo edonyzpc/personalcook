@@ -4,7 +4,7 @@
 //declare
 template <class T>//or <typename T>
 class name
-\{
+{
     public:
         void func();
         //details omitted...
@@ -14,7 +14,7 @@ class name
 //definition
 template <class T>
 void name::func()
-\{
+{
     //some expressions omitted...
 }
 //...
@@ -25,7 +25,7 @@ when instantiating a template, the compiler creates a new class with the given t
 ```cpp
 template<typename T>
 struct Foo
-/{
+{
     T bar;
     void doSomething(T param){/*do something*/}
 };
@@ -34,7 +34,7 @@ struct Foo
 Foo<int> f;
 ```
 
-When reading this line, the compiler will create a new class (let\'s call it Foointa),which is equivalent to the following:<br>
+When reading this line, the compiler will create a new class (let's call it Foointa),which is equivalent to the following:<br>
 ```cpp
 struct FooInt
 {
@@ -43,7 +43,7 @@ struct FooInt
 }
 ```
 
-Consequently, the compiler needs to have access to the implementation of the methods, to instantiate them with the template argument (in this case int).If these implementations were not in the header, they wouldn\'t be accessible, and therefore the compiler wouldn\'t be able to instantiate the template.
+Consequently, the compiler needs to have access to the implementation of the methods, to instantiate them with the template argument (in this case int).If these implementations were not in the header, they wouldn't be accessible, and therefore the compiler wouldn't be able to instantiate the template.
 
 A common solution to this is to write the template declaration in a header file, then implement the class in an implementation file (for example .tpp), and include this implementation file at the end of the header.
 
@@ -66,7 +66,7 @@ void Foo<T>::doSomething(T param)
 
 This way, implementation is still separated from declaration, but is accessible to the compiler.
 
-Another solution is to keep the implementation separated, and explicitly instantiate all the template instances you\'ll need:
+Another solution is to keep the implementation separated, and explicitly instantiate all the template instances you'll need:
 
 ```cpp
 // Foo.h
