@@ -52,7 +52,7 @@ md是markdown的缩写，markdown是一种编辑博客的语言。用惯了可�
 注意这不是单引号，而是Tab上方，数字1左边的按键（注意使用英文输入法）。<br>
 ###### 文字超链接
 
-给一段文字加入超链接的格式是这样的\[要显示的文字\]\(链接的地址\)。你还可以给他加上一个鼠标悬停显示的文本。即在`URL`之后 用双引号括起来一个字符串。同样要注意这里是英文双引号。<br>
+###### 给一段文字加入超链接的格式是这样的\[要显示的文字\]\(链接的地址)。你还可以给他加上一个鼠标悬停显示的文本。即在`URL`之后用双引号括起来一个字符串。同样要注意这里是英文双引号。
 --------
 ##### 插入符号
 ###### 圆点符
@@ -91,7 +91,7 @@ md是markdown的缩写，markdown是一种编辑博客的语言。用惯了可�
 
 [![baidu]](http://www.baidu.com)
 [baidu]:http://www.baidu.com/img/bdlogo.gif "Logo"
-\[!\[baidu\]\]\(http://www.baidu.com)
+\[!\[baidu\]\]\(http://www.baidu.com)<br>
 \[baidu\]:http://www.baidu.com/img/bdlogo.gif "Logo"
 
 ###### 插入代码片段
