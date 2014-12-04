@@ -27,11 +27,11 @@ md是markdown的缩写，markdown是一种编辑博客的语言。用惯了可�
 除此以外，关于标题还有等级表示法，分为六个等级，显示的文本大小依次减小。<br>
  不同等级之间是以井号  #  的个数来标识的。一级标题有一个 #，二级标题有两个# ，以此类推。
  
-![](https://github.com/edonyM/personalcook/blob/master/pic/3.png)
+![](https://github.com/edonyM/personalcook/blob/master/pic/3.PNG)
 
 注意井号#和标题名称要并排写作一行，显示效果如图：
 
-![](https://github.com/edonyM/personalcook/blob/master/pic/4.png)
+![](https://github.com/edonyM/personalcook/blob/master/pic/4.PNG)
 
 --------
 ##### 显示文本
@@ -64,11 +64,11 @@ md是markdown的缩写，markdown是一种编辑博客的语言。用惯了可�
 
 缩进的含义是很容易理解的。
 
-![](https://github.com/edonyM/personalcook/blob/master/pic/8.png)
+![](https://github.com/edonyM/personalcook/blob/master/pic/8.PNG)
 
 当然比这个更一般的用法是这样。常常能在书籍里面看到的效果，比如引用别人的文章。直接看效果。
 
-![](https://github.com/edonyM/personalcook/blob/master/pic/9.png)<br>
+![](https://github.com/edonyM/personalcook/blob/master/pic/9.PNG)<br>
 
 ##### 插入图片
 ###### 来源于网络的图片
@@ -97,6 +97,6 @@ md是markdown的缩写，markdown是一种编辑博客的语言。用惯了可�
 
 我们需要在代码的上一行和下一行用` `` 标记。``` 不是三个单引号，而是数字1左边，Tab键上面的键。要实现语法高亮那么只要在 ``` 之后加上你的编程语言即可(忽略大小写),c++可以写成c++或者cpp。
 
-![](https://github.com/edonyM/personalcook/blob/master/pic/6.png)<br>
+![](https://github.com/edonyM/personalcook/blob/master/pic/6.PNG)<br>
 
-![](https://github.com/edonyM/personalcook/blob/master/pic/7.png)<br>
+![](https://github.com/edonyM/personalcook/blob/master/pic/7.PNG)<br>
