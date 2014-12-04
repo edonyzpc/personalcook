@@ -497,6 +497,8 @@ It’s worth noting again that keeping the public interface between your templat
 
 ###### reference:[LearnCPP](http://www.learncpp.com/cpp-tutorial/145-class-template-specialization/)
 
+--------------------
+
 ##### Partial template specialization
 
 In the lesson on expression parameters and template specialization, you learned how expression parameters could be used to parametrize template classes.
