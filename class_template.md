@@ -496,3 +496,295 @@ true
 It’s worth noting again that keeping the public interface between your template class and all of the specializations identical is generally a good idea, as it makes them easier to use — however, it’s not strictly necessary.
 
 ###### reference:[LearnCPP](http://www.learncpp.com/cpp-tutorial/145-class-template-specialization/)
+
+##### Partial template specialization
+
+In the lesson on expression parameters and template specialization, you learned how expression parameters could be used to parametrize template classes.
+
+Let’s take another look at the Buffer class we used in the previous example:
+
+```cpp
+template <typename T, int nSize> // nSize is the expression parameter
+class Buffer
+{
+private:
+    // The expression parameter controls the side of the array
+    T m_atBuffer[nSize];
+ 
+public:
+    T* GetBuffer() { return m_atBuffer; }
+ 
+    T& operator[](int nIndex)
+    {
+        return m_atBuffer[nIndex];
+    }
+};
+ 
+int main()
+{
+    // declare a char buffer
+    Buffer<char, 10> cChar10Buffer;
+ 
+    // copy a value into the buffer
+    strcpy(cChar10Buffer.GetBuffer(), "Ten");
+ 
+    return 0;
+}
+```
+
+Now, let’s say we wanted to write a function to print out a buffer as a string. Although we could implement this as a member function, we’re going to do it as a non-member function instead because it will make the successive examples easier to follow.
+
+Using templates, we might write something like this:
+	
+```cpp
+template <typename T, int nSize>
+void PrintBufferString(Buffer<T, nSize> &rcBuf)
+{
+    std::cout << rcBuf.GetBuffer() << std::endl;
+}
+
+```
+
+This would allow us to do the following:
+
+```cpp
+int main()
+{
+    // declare a char buffer
+    Buffer<char, 10> cChar10Buffer;
+ 
+    // copy a value into the buffer
+    strcpy(cChar10Buffer.GetBuffer(), "Ten");
+ 
+    // Print the value
+    PrintBufferString(cChar10Buffer);
+    return 0;
+}
+```
+
+and get the following result:
+
+Ten
+
+Although this works, it has a design flaw. Consider the following:
+	
+```cpp
+int main()
+{
+    // declare an int buffer
+    Buffer<int, 10> cInt10Buffer;
+ 
+    // copy values into the buffer
+    for (int nCount=0; nCount < 10; nCount++)
+        cInt10Buffer[nCount] = nCount;
+ 
+    // Print the value?
+    PrintBufferString(cInt10Buffer); // what does this mean?
+    return 0;
+}
+```
+
+This program will compile, execute, and produce the following value (or one similar):
+
+0012FF10
+
+What happened? PrintBufferString() has std::cout print the value of rcBuf.GetBuffer(), which returns a pointer to m_atBuffer! When the data type is a char, cout will print the array as a C-style character string, but when the data type is non-char (such as in this case), cout will print the address that the pointer is holding!
+
+Obviously this case exposes a misuse of this function (as written). Without explicitly examining the code, the programmer would not have any clue that this function does not handle non-char buffers correctly. This is likely to lead to programming errors.
+
+Template specialization
+
+One seemingly useful way to solve this problem is to use template specialization to ensure that only arrays of type char can be passed to PrintBufferString(). As you learned in the previous lesson, template specialization allows you to define a function where all of the templated types have been resolved to a specific data type.
+
+Here’s an example of how that might work here:
+
+```cpp
+void PrintBufferString(Buffer<char, 10> &rcBuf)
+{
+    std::cout << rcBuf.GetBuffer() << std::endl;
+}
+ 
+int main()
+{
+    // declare a char buffer
+    Buffer<char, 10> cChar10Buffer;
+ 
+    // copy a value into the buffer
+    strcpy(cChar10Buffer.GetBuffer(), "Ten");
+ 
+    // Print the value
+    PrintBufferString(cChar10Buffer);
+    return 0;
+}
+```
+
+As you can see, we’ve now specialized PrintBufferString so it will only accept Buffers of type char and of length 10. This means if we try to call PrintBufferString with an int buffer, the compiler will give us an error.
+
+Although this solves the issue of making sure PrintBufferString can not be called with an int Buffer, it brings up another problem: using full template specialization means we have to explicitly define the length of the buffer this function will accept! Consider the following example:
+
+```cpp
+int main()
+{
+    Buffer<char, 10> cChar10Buffer;
+    Buffer<char, 11> cChar11Buffer;
+ 
+    strcpy(cChar10Buffer.GetBuffer(), "Ten");
+    strcpy(cChar11Buffer.GetBuffer(), "Eleven");
+ 
+    PrintBufferString(cChar10Buffer);
+    PrintBufferString(cChar11Buffer); // this will not compile
+ 
+    return 0;
+}
+```
+
+Trying to call PrintBufferString() with cChar11Buffer will not work, because cChar11Buffer is a class of type Buffer<char, 11>, and PrintBufferString() only accepts classes of type Buffer<char, 10>. Even though Buffer<char, 10> and Buffer<char, 11> are both templated from the generic Buffer class, the different template parameters means they are treated as different classes, and can not be intermixed.
+
+Although we could make a copy of PrintBufferString() that could handle Buffer<char, 11>, what happens when we want to call PrintBufferString() will a buffer of size 5, or 14? We’d have to copy the function for each different Buffer size we wanted to use.
+
+Obviously full template specialization is too restrictive a solution here. The solution we are looking for is partial template specialization.
+
+Partial template specialization
+
+Partial template specialization allows us to write functions where some of the template parameters have been fully or partially resolved. In this case, the ideal solution would be to allow PrintBufferString() to accept char Buffers of any length. That means we have to specialize the templated data type, but leave the length in templated form. Fortunately, partial template specialization allows us to do just that!
+
+```cpp
+template<int nSize>
+void PrintBufferString(Buffer<char, nSize> &rcBuf)
+{
+    std::cout << rcBuf.GetBuffer() << std::endl;
+}
+```
+
+As you can see here, we’ve explicitly declared that this function will only work for Buffers of type char, but nSize is still a templated parameter, so it will work for char buffers of any size. That’s all there is to it!
+
+Consider the following example:
+
+```cpp
+int main()
+{
+    // declare an integer buffer with room for 12 chars
+    Buffer<char, 10> cChar10Buffer;
+    Buffer<char, 11> cChar11Buffer;
+ 
+    // strcpy a string into the buffer and print it
+    strcpy(cChar10Buffer.GetBuffer(), "Ten");
+    strcpy(cChar11Buffer.GetBuffer(), "Eleven");
+ 
+    PrintBufferString(cChar10Buffer);
+    PrintBufferString(cChar11Buffer);
+ 
+    return 0;
+}
+```
+
+This prints:
+
+Ten
+Eleven
+
+Just as we expect.
+
+Partial template specialization for pointers
+
+In the previous lesson on expression parameters and template specialization, we took a look at a simple templated Storage class:
+
+```cpp
+using namespace std;
+ 
+template <typename T>
+class Storage
+{
+private:
+    T m_tValue;
+public:
+    Storage(T tValue)
+    {
+         m_tValue = tValue;
+    }
+ 
+    ~Storage()
+    {
+    }
+ 
+    void Print()
+    {
+        std::cout << m_tValue << std::endl;;
+    }
+};
+```
+
+We showed that this class had problems when template parameter T was of type char* because of the shallow copy/pointer assignment that takes place in the constructor. In that lesson, we used full template specialization to create a specialized version of the Storage constructor for type char* that allocated memory and created an actual deep copy of tValue. For reference, here’s the fully specialized char* Storage constructor:
+
+```cpp
+Storage<char*>::Storage(char* tValue)
+{
+    // Allocate memory to hold the tValue string
+    m_tValue = new char[strlen(tValue)+1];
+    // Copy the actual tValue string into the m_tValue memory we just allocated
+    strcpy(m_tValue, tValue);
+}
+```
+
+While that worked great for Storage<char*>, what about other pointer types? It’s fairly easy to see that if T is any pointer type, then we run into the problem of the constructor doing a pointer assignment instead of making an actual copy of the element being pointed to.
+
+Because full template specialization forces us to fully resolve templated types, in order to fix this issue we’d have to define a new specialized constructor for each and every pointer type we wanted to use Storage with! This leads to lots of duplicate code, which as you well know by now is something we want to avoid as much as possible.
+
+Fortunately, partial template specialization offers us a convenient solution. In this case, we’ll use class partial template specialization to define a special version of Storage that works for pointer values:
+
+```cpp
+using namespace std;
+ 
+template <typename T>
+class Storage<T*> // this is specialization of Storage that works with pointer types
+{
+private:
+    T* m_tValue;
+public:
+    Storage(T* tValue) // for pointer type T
+    {
+         m_tValue = new T(*tValue);
+    }
+ 
+    ~Storage()
+    {
+        delete m_tValue;
+    }
+ 
+    void Print()
+    {
+        std::cout << *m_tValue << std::endl;
+    }
+};
+```
+
+And an example of this working:
+
+```cpp
+int main()
+{
+    // Declare a non-pointer Storage to show it works
+    Storage<int> cIntStorage(5);
+ 
+    // Declare a pointer Storage to show it works
+    int x = 7;
+    Storage<int*> cIntPtrStorage(&x);
+ 
+    // If cIntPtrStorage did a pointer assignment on x,
+    // then changing x will change cIntPtrStorage too
+    x = 9;
+    cIntPtrStorage.Print();
+ 
+    return 0;
+}
+```
+
+This prints the value:
+
+7
+
+The fact that we got a 7 here shows that cIntPtrStorage used the pointer version of Storage, which allocated it’s own copy of the int. If cIntPtrStorage had used the non-pointer version of Storage, it would have done a pointer assignment — and when we changed the value of x, we would have changed cIntPtrStorage’s value too.
+
+Using partial template class specialization to create separate pointer and non-pointer implementations of a class is extremely useful when you want a class to handle both differently, but in a way that’s completely transparent to the end-user.
+
+###### reference:[LearnCPP](http://www.learncpp.com/cpp-tutorial/146-partial-template-specialization/)
