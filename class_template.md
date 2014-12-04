@@ -309,6 +309,8 @@ Now when variables of type ~Storage<char*> go out of scope, the memory allocated
 
 ###### reference:[LearnCPP](http://www.learncpp.com/cpp-tutorial/144-expression-parameters-and-template-specialization/)
 
+----------------
+
 #### Class template specilization
 
 As it turns out, it is not only possible to specialize member functions of a template class, it is also possible to specialize an entire class!<br>
@@ -499,7 +501,7 @@ It’s worth noting again that keeping the public interface between your templat
 
 --------------------
 
-##### Partial template specialization
+#### Partial template specialization
 
 In the lesson on expression parameters and template specialization, you learned how expression parameters could be used to parametrize template classes.
 
