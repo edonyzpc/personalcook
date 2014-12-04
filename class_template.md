@@ -117,10 +117,10 @@ Template classes (not template functions)can make use of another kind of templat
 
 A template expression parameter is a parameter that does not substitute for a type, but is instead replaced by a value. An expression parameter can be any of the following:
 
-    * A value that has an integral type or enumeration
-    * A pointer or reference to an object
-    * A pointer or reference to a function
-    * A pointer or reference to a class member function
+* A value that has an integral type or enumeration
+* A pointer or reference to an object
+* A pointer or reference to a function
+* A pointer or reference to a class member function
 
 In the following example, we create a buffer class that uses both a type parameter and an expression parameter. <br>
 The type parameter controls the data type of the buffer array, and the expression parameter controls how large the buffer array is.
@@ -393,7 +393,7 @@ While we could create an entirely new class to do so, this has one major downsid
 Then the programmer has to remember that Storage8<T> is meant for non-bool types, whereas Storage8Bool (or whatever we name the new class)is meant for bools.<br>
 That’s needless complexity we’d rather avoid. Fortunately, C++ provides us a better method: class template specialization.
 
-#### Class template specialization
+##### Class template specialization
 
 Class template specialization allows us to specialize a template class for a particular data type (or set of data types, if there are multiple templated parameters).<br> 
 In this case, we’re going to use class template specialization to write a customized version of Storage8<bool> that will take precedence over the generic Storage8<T> class.
@@ -596,7 +596,7 @@ What happened? PrintBufferString() has std::cout print the value of rcBuf.GetBuf
 
 Obviously this case exposes a misuse of this function (as written). Without explicitly examining the code, the programmer would not have any clue that this function does not handle non-char buffers correctly. This is likely to lead to programming errors.
 
-Template specialization
+###### Template specialization
 
 One seemingly useful way to solve this problem is to use template specialization to ensure that only arrays of type char can be passed to PrintBufferString(). As you learned in the previous lesson, template specialization allows you to define a function where all of the templated types have been resolved to a specific data type.
 
@@ -648,7 +648,7 @@ Although we could make a copy of PrintBufferString() that could handle Buffer<ch
 
 Obviously full template specialization is too restrictive a solution here. The solution we are looking for is partial template specialization.
 
-Partial template specialization
+###### Partial template specialization
 
 Partial template specialization allows us to write functions where some of the template parameters have been fully or partially resolved. In this case, the ideal solution would be to allow PrintBufferString() to accept char Buffers of any length. That means we have to specialize the templated data type, but leave the length in templated form. Fortunately, partial template specialization allows us to do just that!
 
