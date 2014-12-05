@@ -88,3 +88,65 @@ This constructor has been defined in a way that allows it to serve as both a def
 What happens if we do not declare a default constructor and then instantiate our class? 
 
 The answer is that C++ will allocate space for our class instance, but will not initialize the members of the class (similar to what happens when you declare an int, double, or other basic data type).
+
+#### Destructor
+
+A destructor is another special kind of class member function that is executed when an object of that class is destroyed.<br> 
+They are the counterpart to constructors. When a variable goes out of scope, or a dynamically allocated variable is explicitly deleted using the delete keyword, the class destructor is called (if it exists) to help clean up the class before it is removed from memory.<br> 
+For simple classes, a destructor is not needed because C++ will automatically clean up the memory for you. However, if you have dynamically allocated memory, or if you need to do some kind of maintenance before the class is destroyed (eg. closing a file), the destructor is the perfect place to do so.
+
+Like constructors, destructors have specific naming rules:
+1) The destructor must have the same name as the class, preceded by a tilde (~).
+2) The destructor can not take arguments.
+3) The destructor has no return type.
+
+Note that rule 2 implies that only one destructor may exist per class, as there is no way to overload destructors since they can not be differentiated from each other based on arguments.
+
+Constructor and destructor timing
+
+As mentioned previously, the constructor is called when an object is created, and the destructor is called when an object is destroyed. In the following example, we use cout statements inside the constructor and destructor to show this:
+
+```cpp
+class Simple
+{
+private:
+    int m_nID;
+
+    public:
+        Simple(int nID)
+        {
+            std::cout << "Constructing Simple " << nID<< std::endl;
+            m_nID = nID;
+        }
+
+        ~Simple()
+        {
+            std::cout << "Destructing Simple" << m_nID << std::endl;
+        }
+
+        int GetID() { return m_nID; }
+};
+
+int main()
+{
+    // Allocate a Simple on the stack
+    Simple cSimple(1);
+    std::cout << cSimple.GetID() << std::endl;
+    // Allocate a Simple dynamically
+    Simple *pSimple = new Simple(2);
+    std::cout << pSimple->GetID() << std::endl;
+    delete pSimple;
+
+    return 0;
+} // cSimple goes out of scope here
+```
+
+This program produces the following result:
+
+Constructing Simple 1<br>
+1<br>
+Constructing Simple 2<br>
+2<br>
+Destructing Simple 2<br>
+Destructing Simple 1
+
