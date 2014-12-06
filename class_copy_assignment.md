@@ -25,9 +25,8 @@ Because the second statement uses an equals symbol in it, you might expect that 
 
 The difference between the copy constructor and the assignment operator causes a lot of confusion for new programmers, but it’s really not all that difficult. Summarizing:
 
-<< If a new object has to be created before the copying can occur, the copy constructor is used. 
-
-<< If a new object does not have to be created before the copying can occur, the assignment operator is used. 
+>>* If a new object has to be created before the copying can occur, the copy constructor is used. 
+>>* If a new object does not have to be created before the copying can occur, the assignment operator is used. 
 
 There are three general cases where the copy constructor is called instead of the assignment operator:
 
