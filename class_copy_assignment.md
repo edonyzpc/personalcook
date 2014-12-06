@@ -24,8 +24,8 @@ Cents cNancy = cMark; // calls Cents copy constructor!
 Because the second statement uses an equals symbol in it, you might expect that it calls the assignment operator. However, it doesn’t! It actually calls a special type of constructor called a copy constructor. A copy constructor is a special constructor that initializes a new object from an existing object.
 
 The difference between the copy constructor and the assignment operator causes a lot of confusion for new programmers, but it’s really not all that difficult. Summarizing:
-<<* If a new object has to be created before the copying can occur, the copy constructor is used. 
-<<* If a new object does not have to be created before the copying can occur, the assignment operator is used. 
+<<If a new object has to be created before the copying can occur, the copy constructor is used. 
+<<If a new object does not have to be created before the copying can occur, the assignment operator is used. 
 
 There are three general cases where the copy constructor is called instead of the assignment operator:
 
@@ -347,7 +347,7 @@ In this case, C++ will not automatically create a default copy constructor and d
 
 Summary
 
-<* The default copy constructor and default assignment operators do shallow copies, which is fine for classes that contain no dynamically allocated variables.
-<* Classes with dynamically allocated variables need to have a copy constructor and assignment operator that do a deep copy.
-<* The assignment operator is usually implemented using the same code as the copy constructor, but it checks for self-assignment, returns *this, and deallocates any previously allocated memory before deep copying.
-<* If you don’t want a class to be copyable, use a private copy constructor and assignment operator prototype in the class header. 
+<The default copy constructor and default assignment operators do shallow copies, which is fine for classes that contain no dynamically allocated variables.
+<Classes with dynamically allocated variables need to have a copy constructor and assignment operator that do a deep copy.
+<The assignment operator is usually implemented using the same code as the copy constructor, but it checks for self-assignment, returns *this, and deallocates any previously allocated memory before deep copying.
+<If you don’t want a class to be copyable, use a private copy constructor and assignment operator prototype in the class header. 
