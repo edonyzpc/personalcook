@@ -6,3 +6,9 @@
 >>* 2014/12/03 markdown sytanx (Github Flavored Markdown)
 
 >>* 2014/12/04 class template
+
+>>* 2014/12/05 constructor and destructor
+
+>>* 2014/12/05 static member variable and static member function of class
+
+>>* 2014/12/05 copy constructor and overloading the assignment operator
