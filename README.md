@@ -12,3 +12,5 @@
 >>* 2014/12/05 static member variable and static member function of class
 
 >>* 2014/12/05 copy constructor and overloading the assignment operator
+
+>>* 2014/12/09 class assignment details
