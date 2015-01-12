@@ -11,3 +11,5 @@ total is : `<C-r>=37*12<CR>`
 * do the shell cmd
 
 use python interpreter execute current file:`:!python %`
+
+* 
