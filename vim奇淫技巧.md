@@ -27,7 +27,7 @@ type `vim .` you can use vim file browser
 2. copy register `"0`
 3. named register `"a-"z`
 4. dark register `"_d`
-5. system clipboard `"+,"*`. "+ register is the same as the system clipboard.
-6. in insertion mode, `<C-r>+` paste the copied content. And "* register is supported
+5. system clipboard `"+,"*`. `"+` register is the same as the system clipboard.
+6. in insertion mode, `<C-r>+` paste the copied content. And `"*` register is supported
  by system X11.
-7. in Mac OSX and Windows, there is no difference between "+ and "* registers.
+7. in Mac OSX and Windows, there is no difference between `"+` and `"*` registers.
