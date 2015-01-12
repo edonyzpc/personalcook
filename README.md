@@ -14,3 +14,9 @@
 >>* 2014/12/05 copy constructor and overloading the assignment operator
 
 >>* 2014/12/09 class assignment details
+
+>>* 2015/01/10 configuration of vim
+
+>>* 2015/01/11 configuration of bash_profile
+
+>>* 2015/01/12 advanced skills of vim
