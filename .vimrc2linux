@@ -1,0 +1,307 @@
+"mmon conf {{             通用配置
+syn on                      "语法支持
+set ai                      "自动缩进
+set bs=2                    "在insert模式下用退格键删除
+set showmatch               "代码匹配
+"自动配对的括号前景和背景颜色自定义
+hi MatchParen ctermbg=blue ctermfg=red
+set showcmd                 "显示输入命令
+set mouse=a                 "鼠标控制
+
+"状态栏显示设置
+"{{
+set laststatus=0            "总是不显示状态行
+set ruler
+set rulerformat=%37(%r%M%t\ %l\,%v%=%p%%%)
+hi ruler ctermfg=52
+" "}}
+"
+set expandtab               "以下三个配置配合使用，设置tab和缩进空格数
+set shiftwidth=4
+set tabstop=4
+set nocompatible
+set cursorline
+hi CursorLine cterm=none ctermbg=52
+set number                  "显示行号
+set autoread                "文件在Vim之外修改过，自动重新读入
+set autowriteall            "自动保存
+set nobackup                " 不要备份文件（根据自己需要取舍） 
+setlocal noswapfile         " 不要生成swap文件，当buffer被丢弃的时候隐藏它 
+set bufhidden=hide
+"
+"设置','为leader快捷键
+"{{
+let mapleader = "'"
+let g:mapleader = "'"
+"}}
+"
+set ignorecase              "检索时忽略大小写
+set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,cp936,gbk
+"使用utf-8或者gbk或者cp936打开文件
+set fileencoding=utf-8
+set hls                     "检索时高亮显示匹配项
+set helplang=cn             "帮助系统设置为中文
+set confirm                 "在处理未保存或只读文件的时候，弹出确认
+"空格控制折叠
+set foldenable              "代码折叠
+set foldmethod=syntax       "根据语法折叠
+set foldlevel=10           "少于10行不折叠
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+
+"hi Normal ctermfg=gray ctermbg=black
+hi Type ctermfg=002 cterm=bold    
+"cyan
+hi Comment ctermfg=030 cterm=bold 
+"dark yellow
+hi Number ctermfg=220 cterm=bold 
+"red
+hi Constant ctermfg=001
+"light yellow
+hi Identifier   ctermfg=190 
+"blue
+hi Function ctermfg=021
+"brown
+hi Statement ctermfg=136 cterm=bold
+"light blue
+hi PreProc ctermfg=027
+"rose red
+hi Special ctermfg=128
+"white
+hi Ignore ctermfg=255
+"light yellow
+hi Todo ctermfg=196 ctermbg=228
+"light brown
+hi String ctermfg=166
+
+"创建键盘映射
+"禁用方向键
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+"保存名映射到b
+nmap <leader>b :wq<CR>      
+"退出
+nmap <leader>y :q<CR>       
+"下移动半个屏幕
+nmap <S-x> <C-d> 
+"上移半个屏幕
+nmap <S-z> <C-u>
+"设置光标位置
+set scrolloff=8
+"退回normal模式
+imap <leader>/ <ESC>
+imap `<Tab> <ESC>
+"括号自动配对
+"inoremap ( ()<ESC>
+"inoremap [ []<ESC>
+inoremap { {<CR>}<ESC><up>
+"inoremap < <><ESC>
+"inoremap ' ''<ESC>
+"inoremap " ""<ESC>
+"}}
+"
+"conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
+nnoremap <Tab>n gt
+nnoremap <Tab>m gT
+nnoremap <leader>t :tabe 
+"分屏设置
+"竖屏
+nnoremap 'f :sp<CR>
+"横屏
+nnoremap 'v :vs<CR>
+"分屏切换
+nnoremap <S-h> <C-w>h
+nnoremap <S-l> <C-w>l
+nnoremap <S-j> <C-w>j
+nnoremap <S-k> <C-w>k
+"copy into sys clip-board
+"set clipboard=unnamedplus
+vmap <C-c> "+y
+nnoremap <C-v> "+p
+
+"for Python
+map py :call AddPython()<CR>
+function PythonTitle()
+    call append(0," #!/usr/bin/python")
+    call append(1," #encoding: utf-8")
+    call append(2," #        .---.         .-----------  ")
+    call append(3," #       /     \\  __  /    ------    ")
+    call append(4," #      / /     \\(  )/    -----   (`-')  _ _(`-')              <-. (`-')_            ")
+    call append(5," #     //////    '\\/ `   ---      ( OO).-/( (OO ).->     .->      \\( OO) )     .->   ")
+    call append(6," #    //// / //  \:   \: ---      (,------. \\    .'_ (`-')----. ,--./ ,--/  ,--.'  ,-.")
+    call append(7," #   // /   /  / `\\/ \'--         |  .---' '`'-..__)( OO).-. ' |   \\ |  | (`-')'.'  /")
+    call append(8," #  //          //\.\.\\\\          (|  '--.  |  |  ' |( _) | | | |  . '|  |)(OO \\    / ")
+    call append(9," # ============UU====UU====      |  .--'  |  |  / : \\|  |)| | |  |\\    |  |  /   /) ")
+    call append(10," #             '//||\\\\`          |  `---. |  '-'  /  '  '-' ' |  | \\   |  `-/   /`  ")
+    call append(11," #               ''``            `------' `------'    `-----' `--'  `--'    `--'    ")
+    call append(12," # ########################################################################################################")
+    call append(13," # ")
+    call append(14," # Author: edony - edonyzpc@gmail.com                 ")
+    call append(15," # ")
+    call append(16," # twitter : @edonyzpc                                ")
+    call append(17," # ")
+    call append(18," # Last modified: ".strftime("%Y-%m-%d %H:%M"))
+    call append(19," # ")
+    call append(20," # Filename: ".expand("%:t"))
+    call append(21," # ")
+    call append(22," # Description: All Rights Are Reserved                 ")
+    call append(23,"class pcolor:")
+    call append(24,"    ''' This class is for colored print in the python interpreter!")
+    call append(25,"    \"py\" call Addpy() function to add this class which is defined")
+    call append(26,"    in the .vimrc for vim Editor.")
+    call append(27,"    ")
+    call append(28,"    格式: \\033[显示方式;前景色;背景色m")
+    call append(29,"    说明:")
+    call append(30,"    前景色            背景色           颜色")
+    call append(31,"    ---------------------------------------")
+    call append(32,"    30                40              黑色")
+    call append(33,"    31                41              红色")
+    call append(34,"    32                42              绿色")
+    call append(35,"    33                43              黃色")
+    call append(36,"    34                44              蓝色")
+    call append(37,"    35                45              紫红色")
+    call append(38,"    36                46              青蓝色")
+    call append(39,"    37                47              白色")
+    call append(40,"    显示方式           意义")
+    call append(41,"    -------------------------")
+    call append(42,"    0                终端默认设置")
+    call append(43,"    1                高亮显示")
+    call append(44,"    4                使用下划线")
+    call append(45,"    5                闪烁")
+    call append(46,"    7                反白显示")
+    call append(47,"    8                不可见")
+    call append(48,"    ") 
+    call append(49,"    例子：")
+    call append(50,"    \\033[1;31;40m   <!--1-高亮显示 31-前景色红色  40-背景色黑色-->")
+    call append(51,"    \\033[0m         <!--采用终端默认设置，即取消颜色设置-->")
+    call append(52,"    '''")
+    call append(53,"    WARNING = '\\033[0;37;41m'")
+    call append(54,"    ENDC = '\\033[0m'")
+    call append(55,"    def disable(self):")
+    call append(56,"        self.ENDC = ''")
+    call append(57,"        self.WARNING = ''")
+    call append(58," ")
+    call append(59,"import numpy as np")
+    call append(60,"import scipy as sp")
+    call append(61,"import matplotlib.pyplot as plt")
+    call append(62,"import mpl_toolkits.mplot3d as axes3d")
+    call append(63," ")
+endfunction
+function AddPython()
+    let n=11
+    "默认为添加
+    while n < 22
+        let line = getline(n)
+        if line =~ '^\ #\s*\S*Last\smodified:\S*.*$'
+            call UpdateTitle()
+            return
+        endif
+        let n=n+1
+    endwhile
+    call PythonTitle()
+endfunction
+
+"set guifont=Courier_New:h10:cANSI    "设置字体,Windows中格式为set
+"guifont=Consolas:h11，在Linux中格式为set guifont=Consolas\ 11
+" Set font according to system
+
+"pathogen是Vim用来管理插件的插件{
+execute pathogen#infect()
+filetype plugin indent on
+"}
+"}}
+"NERD_tree{
+"autocmd vimenter * NERDTree
+"设置快捷键
+nnoremap <F2> :NERDTreeToggle<CR>
+"打开文件后关闭nerdtree
+let NERDTreeQuitOnOpen=1
+nmap <C-q> :NERDTreeFind<CR>
+"}
+
+"taglist{
+let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'    "设置ctags命令的位置
+set tags=~/tags                                 "where is the tag file
+let Tlist_Show_One_File = 1  "只显示当前文件的taglist，默认是显示多个
+let Tlist_Exit_OnlyWindow = 1  "如果taglist是最后一个窗口，则退出vim
+let Tlist_Use_Right_Window = 1         "在右侧窗口中显示taglist
+let Tlist_GainFocus_On_ToggleOpen = 1  "打开taglist时，光标保留在taglist窗口
+nnoremap <F6> :Tlist<CR>
+nnoremap <S-a> <C-]>
+nnoremap <S-s> <C-t>
+"设置关闭和打开taglist窗口的快捷键
+"}
+
+"Ctags usage
+"{
+"}
+
+"new-omni-completion设置自动补全功能{
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+"Omni menu colors
+highlight Pmenu ctermbg=darkgrey  ctermfg=black
+highlight PmenuSel ctermbg=lightgrey ctermfg=black
+"hi Pmenu guibg=dark gui=bold guifg=#ffffff
+"hi PmenuSel ctermfg=7 ctermbg=4 guibg=#555555 guifg=#ffffff
+"}
+"Copy Right Declaration
+"Add and Update the head
+map <F4> :call TitleDet()<cr>
+function AddTitle()
+call append(0, " /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+call append(1, " #        .---.         .-----------  ")
+call append(2, " #       /     \\  __  /    ------    ")
+call append(3, " #      / /     \\(  )/    -----   (`-')  _ _(`-')              <-. (`-')_            ")
+call append(4, " #     //////    '\\/ `   ---      ( OO).-/( (OO ).->     .->      \\( OO) )     .->   ")
+call append(5, " #    //// / //  \:   \: ---      (,------. \\    .'_ (`-')----. ,--./ ,--/  ,--.'  ,-.")
+call append(6, " #   // /   /  / `\\/ \'--         |  .---' '`'-..__)( OO).-. ' |   \\ |  | (`-')'.'  /")
+call append(7, " #  //          //\.\.\\\\          (|  '--.  |  |  ' |( _) | | | |  . '|  |)(OO \\    / ")
+call append(8, " # ============UU====UU====      |  .--'  |  |  / : \\|  |)| | |  |\\    |  |  /   /) ")
+call append(9, " #             '//||\\\\`          |  `---. |  '-'  /  '  '-' ' |  | \\   |  `-/   /`  ")
+call append(10, " #               ''``            `------' `------'    `-----' `--'  `--'    `--'    ")
+call append(11, " # ########################################################################################################")
+call append(12, " # ")
+call append(13, " # Author: edony - edonyzpc@gmail.com                 ")
+call append(14, " # ")
+call append(15, " # twitter : @edonyzpc                                ")
+call append(16, " # ")
+call append(17, " # Last modified: ".strftime("%Y-%m-%d %H:%M"))
+call append(18, " # ")
+call append(19, " # Filename: ".expand("%:t"))
+call append(20, " # ")
+call append(21, " # Description: All Rights Are Reserved                 ")
+call append(22, " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ ")
+echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
+endfunction
+"更新最近修改时间和文件名
+function UpdateTitle()
+    normal m'
+    execute '/# *Last modified:/s@:.*$@\=strftime(":\t%Y-%m-%d %H:%M")@'
+    normal ''
+    normal mk
+    execute '/# *Filename:/s@:.*$@\=":\t\t".expand("%:t")@'
+    execute "noh"
+    normal 'k
+    echohl WarningMsg | echo "Successful in updating the copy right." | echohl None
+endfunction
+"判断前10行代码里面，是否有Last modified这个单词，
+"如果没有的话，代表没有添加过作者信息，需要新添加；
+"如果有的话，那么只需要更新即可
+function TitleDet()
+    let n=11
+    "默认为添加
+    while n < 22
+        let line = getline(n)
+        if line =~ '^\ #\s*\S*Last\smodified:\S*.*$'
+            call UpdateTitle()
+            return
+        endif
+        let n=n+1
+    endwhile
+    call AddTitle()
+endfunction
