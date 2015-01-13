@@ -1,6 +1,6 @@
 ### Advanced Skill of Vim
 
-####* Calculator
+#### * Calculator
 
 1. in insert mode, press the key button: `<C-r>=`
 2. the following is the caculator expression, for example 37*12
@@ -8,20 +8,20 @@
 
 total is : `<C-r>=37*12<CR>`
 
-####* Do the shell cmd
+#### * Do the shell cmd
 
 use python interpreter execute current file:`:!python %`
 
-####* File manager netrw
+#### * File manager netrw
 
 type `vim .` you can use vim file browser
 
-####* The File Direction in Vim
+#### * The File Direction in Vim
 
 1. the symbol of `%` in vim presents the whole direction of the buffer file.
 2. `:h` is used to delete the name of current file and keeps the direction.
 
-####* The Register of Vim
+#### * The Register of Vim
 
 1. default register `""`
 2. copy register `"0`
@@ -31,12 +31,12 @@ type `vim .` you can use vim file browser
 6. in insertion mode, `<C-r>+` paste the copied content. And `"*` register is supported by system X11.
 7. in Mac OSX and Windows, there is no difference between `"+` and `"*` registers.
 
-####* Auto Complete
+#### * Auto Complete
 
 1. use `set completeopt=menu,preview,longest` to display the complete
 2. ctags usage
 
-####* Match in Pattern
+#### * Match in Pattern
 
 1. change the sensibility of upper or lower case
 <br>`\c` ignore if the letter is upper or lower case
@@ -56,7 +56,7 @@ type `vim .` you can use vim file browser
 <br>`n` jumps to the next match and `N` jumps to the last match
 <br>use history record to fix the regualr match expression to match the complex task
 
-####* Substitute Command
+#### * Substitute Command
 
 1. syntax: <br>
     `:[range]s[ubstitute]/{pattern}/{string}/[falgs]`
@@ -70,7 +70,7 @@ type `vim .` you can use vim file browser
     cmd2 `:%s/going/scrolling/g` do the substitute in the all mathces lines<br>
     `to be done`
 
-####* Global Command
+#### * Global Command
 
 1. syntax: <br>
     `:[range]global[!]/{pattern}/[cmd]`
