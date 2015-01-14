@@ -60,7 +60,7 @@ alias lld='ls -lA | grep "^d" | wc -l'      # count the number of the directions
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 function pvi()                               # Use wildcard to open file with vim
 {
-    name=$(ll | egrep $1 | sed 's/.* / /g')
+    name=$(ll | egrep $1 | sed 's/.* //g')
     echo "Opening File..."
     echo $name
     if [ "$name" ];then
