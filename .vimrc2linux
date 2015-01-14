@@ -95,13 +95,14 @@ set scrolloff=8
 "退回normal模式
 imap <leader>/ <ESC>
 imap `<Tab> <ESC>
-"括号自动配对
+"括号自动配对{
 "inoremap ( ()<ESC>
 "inoremap [ []<ESC>
-inoremap { {<CR>}<ESC><up>
+"inoremap { {<CR>}<ESC><up>
 "inoremap < <><ESC>
 "inoremap ' ''<ESC>
 "inoremap " ""<ESC>
+"}
 "}}
 "
 "conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
@@ -250,6 +251,11 @@ highlight PmenuSel ctermbg=lightgrey ctermfg=black
 "hi Pmenu guibg=dark gui=bold guifg=#ffffff
 "hi PmenuSel ctermfg=7 ctermbg=4 guibg=#555555 guifg=#ffffff
 "}
+
+"delimitMate启用{
+let delimitMate_expand_cr=1
+"}
+
 "Copy Right Declaration
 "Add and Update the head
 map <F4> :call TitleDet()<cr>
