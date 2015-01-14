@@ -61,10 +61,12 @@ alias less='less -FSRXc'                    # Preferred 'less' implementation
 function pvi()                               # Use wildcard to open file with vim
 {
     name=$(ll | egrep $1 | sed 's/.* / /g')
-    if [ -n $name ];then
-        echo "No Matching File!"
-    else
+    echo "Opening File..."
+    echo $name
+    if [ "$name" ];then
         vim $name
+    else
+        echo "No Matching File!"
     fi
 }
 #cd() { builtin cd "$@"; ll; }              # Always list directory contents upon 'cd'
