@@ -243,6 +243,7 @@ nnoremap <S-s> <C-t>
 "new-omni-completion设置自动补全功能{
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+set completeopt=menuone,preview
 "Omni menu colors
 highlight Pmenu ctermbg=darkgrey  ctermfg=black
 highlight PmenuSel ctermbg=lightgrey ctermfg=black
