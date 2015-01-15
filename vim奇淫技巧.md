@@ -82,3 +82,11 @@ type `vim .` you can use vim file browser
 5. example for copy the comment of source code into register
     `:g/\v\/\//yank a`
     `:reg a`
+
+#### * Macro
+
+1. record a macro with `q`
+2. example: <br>
+    a. `qa` \/\/ a for register of vim
+    b. `:!python %` \/\/ command to do
+    c. `q` \/\/ finish the record
