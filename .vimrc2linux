@@ -177,6 +177,19 @@ let delimitMate_expand_cr=1
 "for Python
 map py :call AddPython()<CR>
 
+
+"for math import
+map <leader>m :call Importmath()<CR>
+function Importnumpy()
+    call append('.',"import math as m")
+endfunction
+
+"for random import
+map <leader>r :call Importrand()<CR>
+function Importrand()
+    call append('.',"import random as r")
+endfunction
+
 "Copy Right Declaration
 "Add and Update the head
 map <F4> :call TitleDet()<cr>
