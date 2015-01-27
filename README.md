@@ -20,3 +20,5 @@
 >>* 2015/01/11 configuration of bash_profile
 
 >>* 2015/01/12 advanced skills of vim
+
+>>* 2015/01/27 octave language learning for ML recommanded by Andrew Ng
