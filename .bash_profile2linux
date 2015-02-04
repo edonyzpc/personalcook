@@ -57,6 +57,7 @@ alias ll='ls -FGlAhp -t --color'            # Preferred 'ls' implementation
 alias llf='ls -la | grep "^-" | wc -l'      # count the number of the file
 alias lla='ls -lA | egrep "^-|^d" | wc -l'  # count all the member of current direction
 alias lld='ls -lA | grep "^d" | wc -l'      # count the number of the directions
+alias qtipy='ipython qtconsole'             # Start up the qt4-based ipython
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 function pvi()                               # Use wildcard to open file with vim
 {
