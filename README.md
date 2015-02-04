@@ -22,3 +22,5 @@
 >>* 2015/01/12 advanced skills of vim
 
 >>* 2015/01/27 octave language learning for ML recommanded by Andrew Ng
+
+>>* 2015/02/04 configuration of, a enhanced interactive Python shell, ipython
