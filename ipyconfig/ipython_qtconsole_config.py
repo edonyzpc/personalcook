@@ -92,7 +92,7 @@ c.IPythonQtConsoleApp.maximize = True
 # c.IPythonQtConsoleApp.plain = False
 
 # Start the console window with the menu bar hidden.
-# c.IPythonQtConsoleApp.hide_menubar = False
+c.IPythonQtConsoleApp.hide_menubar = True
 
 # The Logging format template
 # c.IPythonQtConsoleApp.log_format = '[%(name)s]%(highlevel)s %(message)s'
