@@ -392,7 +392,7 @@ c.ZMQInteractiveShell.color_info = True
 # c.ZMQInteractiveShell.ast_transformers = []
 
 # 
-# c.ZMQInteractiveShell.history_length = 10000
+c.ZMQInteractiveShell.history_length = 10000
 
 # Don't call post-execute functions that have failed in the past.
 # c.ZMQInteractiveShell.disable_failing_post_execute = False
@@ -471,7 +471,7 @@ c.ZMQInteractiveShell.colors = 'Linux'
 # c.ZMQInteractiveShell.logappend = ''
 
 # 
-# c.ZMQInteractiveShell.xmode = 'Context'
+c.ZMQInteractiveShell.xmode = 'Context'
 
 # 
 # c.ZMQInteractiveShell.quiet = False
@@ -485,7 +485,7 @@ c.ZMQInteractiveShell.colors = 'Linux'
 # less than 20, it is reset to 0 and a warning is issued).  This limit is
 # defined because otherwise you'll spend more time re-flushing a too small cache
 # than working
-# c.ZMQInteractiveShell.cache_size = 1000
+c.ZMQInteractiveShell.cache_size = 5000
 
 # 'all', 'last', 'last_expr' or 'none', specifying which nodes should be run
 # interactively (displaying output from expressions).
