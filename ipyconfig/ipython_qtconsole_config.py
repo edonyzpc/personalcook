@@ -161,7 +161,7 @@ c.IPythonWidget.editor = 'vim'
 # The font family to use for the console. On OSX this defaults to Monaco, on
 # Windows the default is Consolas with fallback of Courier, and on other
 # platforms the default is Monospace.
-c.IPythonWidget.font_family = u'Courier:Bold'
+c.IPythonWidget.font_family = 'Courier'
 
 # The pygments lexer class to use.
 # c.IPythonWidget.lexer_class = <IPython.utils.traitlets.Undefined object at 0x7f626f0a7890>
@@ -195,7 +195,7 @@ c.IPythonWidget.font_family = u'Courier:Bold'
 
 # The font size. If unconfigured, Qt will be entrusted with the size of the
 # font.
-c.IPythonWidget.font_size = 13
+c.IPythonWidget.font_size = 14
 
 # The editor command to use when a specific line number is requested. The string
 # should contain two format specifiers: {line} and {filename}. If this parameter
@@ -385,7 +385,7 @@ c.IPythonWidget.font_size = 13
 # Use colors for displaying information about objects. Because this information
 # is passed through a pager (like 'less'), and some pagers get confused with
 # color codes, this capability can be turned off.
-# c.ZMQInteractiveShell.color_info = True
+c.ZMQInteractiveShell.color_info = True
 
 # A list of ast.NodeTransformer subclass instances, which will be applied to
 # user input before code is run.

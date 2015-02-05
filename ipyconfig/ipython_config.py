@@ -41,7 +41,7 @@ c.InteractiveShellApp.exec_lines = [
 
 # Enable GUI event loop integration with any of ('glut', 'gtk', 'gtk3', 'none',
 # 'osx', 'pyglet', 'qt', 'qt4', 'tk', 'wx').
-c.InteractiveShellApp.gui = 'gtk'
+c.InteractiveShellApp.gui = 'qt4'
 
 # Pre-load matplotlib and numpy for interactive use, selecting a particular
 # matplotlib backend and loop integration.
@@ -166,7 +166,7 @@ c.InteractiveShellApp.pylab = 'gtk'
 
 # Enable GUI event loop integration with any of ('glut', 'gtk', 'gtk3', 'none',
 # 'osx', 'pyglet', 'qt', 'qt4', 'tk', 'wx').
-# c.TerminalIPythonApp.gui = None
+c.TerminalIPythonApp.gui = 'qt4'
 
 # A list of dotted module names of IPython extensions to load.
 # c.TerminalIPythonApp.extensions = []
@@ -184,12 +184,12 @@ c.InteractiveShellApp.pylab = 'gtk'
 # TerminalInteractiveShell will inherit config from: InteractiveShell
 
 # auto editing of files with syntax errors.
-# c.TerminalInteractiveShell.autoedit_syntax = False
+c.TerminalInteractiveShell.autoedit_syntax = True
 
 # Use colors for displaying information about objects. Because this information
 # is passed through a pager (like 'less'), and some pagers get confused with
 # color codes, this capability can be turned off.
-# c.TerminalInteractiveShell.color_info = True
+c.TerminalInteractiveShell.color_info = True
 
 # A list of ast.NodeTransformer subclass instances, which will be applied to
 # user input before code is run.
@@ -205,10 +205,10 @@ c.InteractiveShellApp.pylab = 'gtk'
 # c.TerminalInteractiveShell.show_rewritten_input = True
 
 # Set the color scheme (NoColor, Linux, or LightBG).
-# c.TerminalInteractiveShell.colors = 'Linux'
+c.TerminalInteractiveShell.colors = 'Linux'
 
 # Autoindent IPython code entered interactively.
-# c.TerminalInteractiveShell.autoindent = True
+c.TerminalInteractiveShell.autoindent = True
 
 # 
 # c.TerminalInteractiveShell.separate_in = '\n'
@@ -353,7 +353,7 @@ c.InteractiveShellApp.pylab = 'gtk'
 # c.PromptManager.in_template = 'In [\\#]: '
 
 # 
-# c.PromptManager.color_scheme = 'Linux'
+c.PromptManager.color_scheme = 'Linux'
 
 #------------------------------------------------------------------------------
 # HistoryManager configuration
