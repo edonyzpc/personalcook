@@ -1,3 +1,24 @@
+# Traceback (most recent call last):
+# >   File "<string>", line 1, in <module>
+# >   File "/System/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/locale.py",
+# > line 441, in getdefaultlocale
+# >     return _parse_localename(localename)
+# >   File "/System/Library/Frameworks/Python.framework/Versions/2.5/lib/python2.5/locale.py",
+# > line 373, in _parse_localename
+# >     raise ValueError, 'unknown locale: %s' % localename
+# > ValueError: unknown locale: UTF-8
+# 
+# thanks Jay! I finally solved my problem adding this to my bash profile:
+# 
+# export LC_ALL=es_ES.UTF-8
+# export LANG=es_ES.UTF-8
+# 
+# now I can 'hg whatever' and use out-of-ASCII chars.
+# 
+# but now I don't understand what's the point of "Set LANG environment
+# variable on startutp" preference in Terminal.app :(
+export LC_ALL=es_ES.UTF-8
+export LANG=es_ES.UTF-8
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 #export PATH="/usr/local/bin:$PATH"
