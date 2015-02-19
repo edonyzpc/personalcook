@@ -9,7 +9,6 @@
 
 3. After Homebrew successfully installed, you will check you brew with command `brew doctor`. Official calling there is no need to care much more about for WARNINGS for it is just for domainers. Of course you are yourself manager.
 
-![]()
 
 4. Now you can help youself to install Python with the help of brew command. `brew install python`. Take care of this command. It do not need the Admin Access(`sudo`) because brew help youself to differentiate the builtin python and brew-installed python.
 
