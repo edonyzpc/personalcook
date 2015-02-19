@@ -15,10 +15,10 @@
 5. Mac has a builtin Python but it is not a complete Python and neither update. Personally, I think this is the brew-installed python's advantages. Builtin Python is located in '/usr/bin/python' and brew-installed python is located in '/usr/local/bin/python'. And the third party packages for builtin python is located in '/Library/...' and the brew-installed python is located in '/usr/local/lib'
 
 6. Installing Python Packages is almost use `pip`.For example, install numpy, scipy and matplotlib packages.
-* `pip install numpy`
-* `pip install scipy`
-* `pip install matplotlib`
-* check if they are succussfully installed and useful
+ * `pip install numpy`
+ * `pip install scipy`
+ * `pip install matplotlib`
+ * check if they are succussfully installed and useful
 
 7. For brew-installed python working perfectly, you should mange the `EXPORT $PATH` within your bash_profile or bashrc. And the details are in the following article. <br>
 [MacOSX PATH MANGAGEMENT](http://muttsnutts.github.io/blog/2011/09/12/manage-path-on-mac-os-x-lion/)
