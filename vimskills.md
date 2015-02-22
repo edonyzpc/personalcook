@@ -87,6 +87,6 @@ type `vim .` you can use vim file browser
 
 1. record a macro with `q`
 2. example: <br>
-    a. `qa` \/\/ a for register of vim
-    b. `:!python %` \/\/ command to do
-    c. `q` \/\/ finish the record
+    a. `qa` // a for register of vim
+    b. `:!python %` // command to do
+    c. `q` // finish the record
