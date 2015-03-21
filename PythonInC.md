@@ -6,6 +6,8 @@
 
 In this note, I will do some record for my configuration of Visual Studion 2008 that refer to Python C API. And my OS is Windows 7 Professional 64bits.
 
+----
+
 1. Install Python for Windows.<br>
     a. The only thing that we should taking care of is the difference between 32bits-Python and 64bits-Python.<br>
     b. Concretely, since my Visual Studio 2008 built 32bits Application, I choose Python2.7.9-X86-installer. This is very important for linking Python C-API library within my Visual Studio Project.<br>
