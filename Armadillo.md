@@ -6,6 +6,8 @@
 
 In this note, I will do some record for my configuration of Visual Studion 2008 that refer to Armadillo Linear Library. And my OS is Windows 7 Professional 64bits.
 
+----
+
 1. Install Armadillo Linear Library for Windows.<br>
     a. Downdload Armadillo Linear Library from http://arma.sourceforge.net/download.html.<br>
     b. The only thing that we should taking care of is that the Armadillo Linear Library has requirement of compiler and the compiler of Visual Studio 2008 is match with the version of <=4.000.0.<br>
