@@ -1,7 +1,5 @@
 # Use Python In C/C++ Application
 
-----
-
 > As Python provide C API that help thoes who are good at C but need something that prefer to something that has a good performance at Python.
 
 ----
