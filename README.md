@@ -24,3 +24,7 @@
 >>* 2015/01/27 octave language learning for ML recommanded by Andrew Ng
 
 >>* 2015/02/04 configuration of, a enhanced interactive Python shell, ipython
+
+>>* 2015/03/22 configuration of Visual Studio 2008 to use Python C-API
+
+>>* 2015/03/22 configuration of Visual Studio 2008 to use Armadillo Library
