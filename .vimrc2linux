@@ -86,7 +86,7 @@ hi Special         guifg=#0000bb guibg=bg
 hi Identifier      guifg=#0066cc guibg=bg  
 hi Statement       guifg=#0000bb guibg=bg gui=NONE term=bold ctermfg=28 cterm=NONE   
 "hi Function        guifg=#008000 guibg=bg gui=bold  
-hi Operator        guifg=#0066cc guibg=bg  
+"hi Operator        guifg=#0066cc guibg=bg  
 hi PreProc         guifg=#0000bb guibg=bg term=underline ctermfg=34  
 hi Type            guifg=#0000bb guibg=bg term=underline ctermfg=34  
 hi Underlined      guifg=#80a0ff guibg=bg term=underline cterm=underline ctermfg=9 gui=underline   
@@ -100,7 +100,7 @@ hi PmenuThumb      guifg=fg guibg=bg gui=reverse cterm=reverse
 hi TabLine         guibg=#a9a9a9 guifg=fg gui=underline term=underline cterm=underline ctermfg=15 ctermbg=8   
 hi TabLineSel      guifg=fg guibg=bg gui=bold term=bold cterm=bold   
 hi TabLineFill     guifg=fg guibg=bg gui=reverse term=reverse cterm=reverse   
-hi MatchParen      guifg=#cecb00 guibg=#ffffaf term=reverse ctermfg=3 ctermbg=229   
+"hi MatchParen      guifg=#cecb00 guibg=#ffffaf term=reverse ctermfg=3 ctermbg=229   
 hi SpecialKey      guifg=#00ffff guibg=bg term=bold ctermfg=9   
 hi NonText         guifg=#0000ff guibg=bg gui=bold term=bold ctermfg=9   
 hi Directory       guifg=#d700af guibg=bg term=bold ctermfg=11   
@@ -109,7 +109,7 @@ hi IncSearch       guifg=#708090 guibg=#f0e68c gui=reverse term=reverse cterm=re
 hi Search          guifg=#000087 guibg=#ff8000 term=reverse ctermfg=18 ctermbg=122   
 hi MoreMsg         guifg=#00875f guibg=bg term=bold ctermfg=29 gui=bold   
 hi ModeMsg         guifg=#d7af00 guibg=bg term=bold cterm=bold ctermfg=178 gui=bold   
-hi LineNr          guifg=#000000 guibg=bg term=underline ctermfg=186   
+"hi LineNr          guifg=#000000 guibg=bg term=underline ctermfg=186   
 hi Question        guifg=#00ffff guibg=bg gui=bold term=standout ctermfg=14   
 hi StatusLine      guifg=#333333 guibg=bg gui=bold,reverse term=bold,reverse cterm=bold,reverse ctermfg=18 ctermbg=15   
 hi StatusLineNC    guifg=#333333 guibg=bg gui=bold,reverse term=bold,reverse cterm=bold,reverse ctermfg=246 ctermbg=15   
