@@ -52,29 +52,134 @@ set foldlevel=10           "少于10行不折叠
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 "hi Normal ctermfg=gray ctermbg=black
-hi Type ctermfg=002 cterm=bold    
+"hi Type ctermfg=002 cterm=bold    
 "cyan
-hi Comment ctermfg=030 cterm=bold 
+"hi Comment ctermfg=030 cterm=bold 
 "dark yellow
-hi Number ctermfg=220 cterm=bold 
+hi Number ctermfg=220
 "red
-hi Constant ctermfg=001
+"hi Constant ctermfg=001
 "light yellow
-hi Identifier   ctermfg=190 
+"hi Identifier   ctermfg=190 
 "blue
-hi Function ctermfg=021
+"hi Function ctermfg=021
+"hi Function        guifg=#008000 guibg=bg gui=bold  
 "brown
-hi Statement ctermfg=136 cterm=bold
+"hi Statement ctermfg=136 cterm=bold
 "light blue
-hi PreProc ctermfg=027
+"hi PreProc ctermfg=027
 "rose red
-hi Special ctermfg=128
+"hi Special ctermfg=128
 "white
-hi Ignore ctermfg=255
+"hi Ignore ctermfg=255
 "light yellow
-hi Todo ctermfg=196 ctermbg=228
+"hi Todo ctermfg=196 ctermbg=228
 "light brown
-hi String ctermfg=166
+"hi String ctermfg=166
+
+" LIGHT COLOR DEFINE START  
+hi Normal          guifg=#008000 guibg=#FFFFFF   
+hi Cursor          guifg=#ffffff guibg=#333333  
+hi Comment         guifg=#ff8000 guibg=bg  
+hi Constant        guifg=#dd0000 guibg=bg  
+hi Special         guifg=#0000bb guibg=bg  
+hi Identifier      guifg=#0066cc guibg=bg  
+hi Statement       guifg=#0000bb guibg=bg gui=NONE term=bold ctermfg=28 cterm=NONE   
+"hi Function        guifg=#008000 guibg=bg gui=bold  
+hi Operator        guifg=#0066cc guibg=bg  
+hi PreProc         guifg=#0000bb guibg=bg term=underline ctermfg=34  
+hi Type            guifg=#0000bb guibg=bg term=underline ctermfg=34  
+hi Underlined      guifg=#80a0ff guibg=bg term=underline cterm=underline ctermfg=9 gui=underline   
+hi Ignore          guifg=bg guibg=fg cterm=bold ctermfg=0   
+hi Error           guifg=#ffffff guibg=#ff0000 term=reverse cterm=bold ctermfg=15 ctermbg=12
+hi Todo            guifg=#0000ff guibg=#ffff00 term=standout ctermfg=0 ctermbg=14   
+hi Pmenu           guibg=#ff00ff guifg=fg ctermbg=13   
+hi PmenuSel        guibg=#a9a9a9 guifg=fg ctermbg=8   
+hi PmenuSbar       guibg=#bebebe guifg=fg ctermbg=7   
+hi PmenuThumb      guifg=fg guibg=bg gui=reverse cterm=reverse   
+hi TabLine         guibg=#a9a9a9 guifg=fg gui=underline term=underline cterm=underline ctermfg=15 ctermbg=8   
+hi TabLineSel      guifg=fg guibg=bg gui=bold term=bold cterm=bold   
+hi TabLineFill     guifg=fg guibg=bg gui=reverse term=reverse cterm=reverse   
+hi MatchParen      guifg=#cecb00 guibg=#ffffaf term=reverse ctermfg=3 ctermbg=229   
+hi SpecialKey      guifg=#00ffff guibg=bg term=bold ctermfg=9   
+hi NonText         guifg=#0000ff guibg=bg gui=bold term=bold ctermfg=9   
+hi Directory       guifg=#d700af guibg=bg term=bold ctermfg=11   
+hi ErrorMsg        guifg=#ffffff guibg=#ff0000 term=standout cterm=bold ctermfg=15 ctermbg=4 
+hi IncSearch       guifg=#708090 guibg=#f0e68c gui=reverse term=reverse cterm=reverse ctermfg=11 ctermbg=10   
+hi Search          guifg=#000087 guibg=#ff8000 term=reverse ctermfg=18 ctermbg=122   
+hi MoreMsg         guifg=#00875f guibg=bg term=bold ctermfg=29 gui=bold   
+hi ModeMsg         guifg=#d7af00 guibg=bg term=bold cterm=bold ctermfg=178 gui=bold   
+hi LineNr          guifg=#000000 guibg=bg term=underline ctermfg=186   
+hi Question        guifg=#00ffff guibg=bg gui=bold term=standout ctermfg=14   
+hi StatusLine      guifg=#333333 guibg=bg gui=bold,reverse term=bold,reverse cterm=bold,reverse ctermfg=18 ctermbg=15   
+hi StatusLineNC    guifg=#333333 guibg=bg gui=bold,reverse term=bold,reverse cterm=bold,reverse ctermfg=246 ctermbg=15   
+hi VertSplit       guifg=#333333 guibg=bg gui=reverse ctermfg=18 ctermbg=251 term=reverse cterm=reverse   
+hi Title           guifg=#d700af guibg=bg gui=bold term=bold ctermfg=163   
+hi Visual          guifg=#316ac5 guibg=#ffffff gui=reverse term=reverse cterm=reverse ctermfg=229 ctermbg=22   
+hi VisualNOS       guifg=fg guibg=bg gui=bold,underline term=bold,underline cterm=bold,underline   
+hi WarningMsg      guifg=#ff0000 guibg=bg term=standout ctermfg=9   
+hi WildMenu        guifg=#000000 guibg=#ffff00 guifg=fg term=standout ctermfg=0 ctermbg=11   
+hi Folded          guifg=#00ffff guibg=#a8a8a8 term=standout ctermfg=14 ctermbg=248   
+hi FoldColumn      guifg=#ffffff guibg=#333333 term=standout ctermfg=14 ctermbg=250   
+hi DiffAdd         guibg=#000087 guifg=#e4e4e4 term=bold ctermbg=1 ctermbg=18 ctermfg=254   
+hi DiffChange      guibg=#870087 guifg=#87afff term=bold ctermbg=90   
+hi DiffDelete      guifg=#0000ff guibg=#008787 gui=bold term=bold cterm=bold ctermfg=21 ctermbg=30 ctermbg=3   
+hi DiffText        guibg=#ff0000 guifg=fg gui=bold term=reverse cterm=bold ctermbg=9   
+hi SignColumn      guifg=#00ffff guibg=#bcbcbc term=standout ctermfg=14 ctermbg=250   
+hi lCursor         guifg=#d7ffd7 guibg=#0000af  
+" LIGHT COLOR DEFINE END  
+
+" DARK COLOR DEFINE START  
+"hi Normal          guifg=#909090 guibg=#131313 ctermfg=19 ctermbg=254   
+"hi Cursor          guifg=#131313 guibg=#909090   
+"hi Comment         guifg=#e4e4e4 guibg=bg ctermfg=208   
+"hi Constant        guifg=#dd0000 guibg=bg ctermfg=160   
+"hi Special         guifg=#00af00 guibg=bg term=bold ctermfg=166   
+"hi Identifier      guifg=#0066cc guibg=bg term=underline cterm=NONE ctermfg=19   
+"hi Statement       guifg=#00af00 guibg=bg gui=NONE term=bold ctermfg=28 cterm=NONE   
+"hi Function        guifg=#ff8000 guibg=bg gui=bold  
+"hi Operator        guifg=#0066cc guibg=bg  
+"hi PreProc         guifg=#00af00 guibg=bg term=underline cterm=bold ctermfg=34 gui=bold   
+"hi Type            guifg=#00af00 guibg=bg term=underline ctermfg=34   
+"hi Underlined      guifg=#80a0ff guibg=bg term=underline cterm=underline ctermfg=9 gui=underline   
+"hi Ignore          guifg=bg guibg=fg cterm=bold ctermfg=0   
+"hi Error           guifg=#ffffff guibg=#ff0000 term=reverse cterm=bold ctermfg=15 ctermbg=12 
+"hi Todo            guifg=#0000ff guibg=#ffff00 term=standout ctermfg=0 ctermbg=14   
+"hi Pmenu           guibg=#ff00ff guifg=fg ctermbg=13   
+"hi PmenuSel        guibg=#a9a9a9 guifg=fg ctermbg=8   
+"hi PmenuSbar       guibg=#bebebe guifg=fg ctermbg=7   
+"hi PmenuThumb      guifg=fg guibg=bg gui=reverse cterm=reverse   
+"hi TabLine         guibg=#a9a9a9 guifg=fg gui=underline term=underline cterm=underline ctermfg=15 ctermbg=8   
+"hi TabLineSel      guifg=fg guibg=bg gui=bold term=bold cterm=bold   
+"hi TabLineFill     guifg=fg guibg=bg gui=reverse term=reverse cterm=reverse   
+"hi MatchParen      guifg=#cecb00 guibg=#ffffaf term=reverse ctermfg=3 ctermbg=229   
+"hi SpecialKey      guifg=#00ffff guibg=bg term=bold ctermfg=9   
+"hi NonText         guifg=#0000ff guibg=bg gui=bold term=bold ctermfg=9   
+"hi Directory       guifg=#d700af guibg=bg term=bold ctermfg=11
+"hi ErrorMsg        guifg=#ffffff guibg=#ff0000 term=standout cterm=bold ctermfg=15 ctermbg=4
+"hi IncSearch       guifg=#708090 guibg=#f0e68c gui=reverse term=reverse cterm=reverse ctermfg=11 ctermbg=10   
+"hi Search          guifg=#000087 guibg=#ff8000 term=reverse ctermfg=18 ctermbg=122   
+"hi MoreMsg         guifg=#00875f guibg=bg term=bold ctermfg=29 gui=bold   
+"hi ModeMsg         guifg=#d7af00 guibg=bg term=bold cterm=bold ctermfg=178 gui=bold   
+"hi LineNr          guifg=#909090 guibg=bg term=underline ctermfg=186   
+"hi Question        guifg=#00ffff guibg=bg gui=bold term=standout ctermfg=14   
+"hi StatusLine      guifg=#333333 guibg=#909090 gui=bold,reverse term=bold,reverse cterm=bold,reverse ctermfg=18 ctermbg=15   
+"hi StatusLineNC    guifg=#333333 guibg=#909090 gui=bold term=bold,reverse cterm=bold,reverse ctermfg=246 ctermbg=15   
+"hi VertSplit       guifg=#333333 guibg=#909090 gui=reverse ctermfg=18 ctermbg=251 term=reverse cterm=reverse   
+"hi Title           guifg=#d700af guibg=bg gui=bold term=bold ctermfg=163   
+"hi Visual          guifg=#cccccc guibg=#000000 gui=reverse term=reverse cterm=reverse ctermfg=229 ctermbg=22   
+"hi VisualNOS       guifg=fg guibg=bg gui=bold,underline term=bold,underline cterm=bold,underline   
+"hi WarningMsg      guifg=#ff0000 guibg=bg term=standout ctermfg=9   
+"hi WildMenu        guifg=#000000 guibg=#ffff00 guifg=fg term=standout ctermfg=0 ctermbg=11   
+"hi Folded          guifg=#00ffff guibg=#a8a8a8 term=standout ctermfg=14 ctermbg=248   
+"hi FoldColumn      guifg=#ffffff guibg=#333333 term=standout ctermfg=14 ctermbg=250   
+"hi DiffAdd         guibg=#000087 guifg=#e4e4e4 term=bold ctermbg=1 ctermbg=18 ctermfg=254   
+"hi DiffChange      guibg=#870087 guifg=#87afff term=bold ctermbg=90   
+"hi DiffDelete      guifg=#0000ff guibg=#008787 gui=bold term=bold cterm=bold ctermfg=21 ctermbg=30 ctermbg=3   
+"hi DiffText        guibg=#ff0000 guifg=fg gui=bold term=reverse cterm=bold ctermbg=9   
+"hi SignColumn      guifg=#00ffff guibg=#bcbcbc term=standout ctermfg=14 ctermbg=250   
+"hi lCursor         guifg=#d7ffd7 guibg=#0000af  
+" DARK COLOR DEFINE END  
 
 "创建键盘映射
 "禁用方向键
