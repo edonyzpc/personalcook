@@ -51,30 +51,35 @@ set foldmethod=syntax       "根据语法折叠
 set foldlevel=10           "少于10行不折叠
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
+"scheme solarized
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
+"outdated colors
 "hi Normal ctermfg=gray ctermbg=black
-hi Type ctermfg=002 cterm=bold    
+"hi Type ctermfg=002 cterm=bold    
 "green
-hi Comment ctermfg=28
+"hi Comment ctermfg=28
 "dark yellow
-hi Number ctermfg=220
+"hi Number ctermfg=220
 "red
-hi Constant ctermfg=001
+"hi Constant ctermfg=001
 "light yellow
-hi Identifier   ctermfg=190 
+"hi Identifier   ctermfg=190 
 "blue
-hi Function ctermfg=4
+"hi Function ctermfg=4
 "brown
-hi Statement ctermfg=10 cterm=bold
+"hi Statement ctermfg=10 cterm=bold
 "light blue
-hi PreProc ctermfg=027
+"hi PreProc ctermfg=027
 "rose red
-hi Special ctermfg=128
+"hi Special ctermfg=128
 "white
-hi Ignore ctermfg=255
+"hi Ignore ctermfg=255
 "light yellow
-hi Todo ctermfg=196 ctermbg=228
+"hi Todo ctermfg=196 ctermbg=228
 "red
-hi String ctermfg=9
+"hi String ctermfg=9
 
 " LIGHT COLOR DEFINE START  
 "hi Normal          guifg=#008000 guibg=#FFFFFF   
