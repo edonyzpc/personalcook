@@ -1,0 +1,12 @@
+To change the linux fonts:
+    1.search and download font file(*.ttf)
+    2.go to the dir-->/usr/share/fonts
+    3.mkdir $(name of the fonts)
+    4.cp the font file into the new make direction
+    5.update the fonts cache
+    ...mkfontscale
+    ...mkfontdir
+    ...fc-cache
+
+P.S.
+    Be sure that you get the root access
