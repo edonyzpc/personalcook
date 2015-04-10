@@ -204,14 +204,6 @@ set scrolloff=8
 "退回normal模式
 imap <leader>/ <ESC>
 imap `<Tab> <ESC>
-"括号自动配对{
-"inoremap ( ()<ESC>
-"inoremap [ []<ESC>
-"inoremap { {<CR>}<ESC><up>
-"inoremap < <><ESC>
-"inoremap ' ''<ESC>
-"inoremap " ""<ESC>
-"}
 "}}
 "
 "conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
@@ -258,14 +250,10 @@ let Tlist_Show_One_File = 1  "只显示当前文件的taglist，默认是显示�
 let Tlist_Exit_OnlyWindow = 1  "如果taglist是最后一个窗口，则退出vim
 let Tlist_Use_Right_Window = 1         "在右侧窗口中显示taglist
 let Tlist_GainFocus_On_ToggleOpen = 1  "打开taglist时，光标保留在taglist窗口
+"设置关闭和打开taglist窗口的快捷键
 nnoremap <F6> :Tlist<CR>
 nnoremap <S-a> <C-]>
 nnoremap <S-s> <C-t>
-"设置关闭和打开taglist窗口的快捷键
-"}
-
-"Ctags usage
-"{
 "}
 
 "new-omni-completion设置自动补全功能{
@@ -280,109 +268,32 @@ highlight PmenuSel ctermbg=lightgrey ctermfg=black
 "}
 
 "delimitMate启用{
+"括号自动配对{
 let delimitMate_expand_cr=1
 "}
 
-"for Python
-map py :call AddPython()<CR>
-
-
-"for math import
-map <leader>m :call Importmath()<CR>
-function Importnumpy()
-    call append('.',"import math as m")
-endfunction
-
-"for random import
-map <leader>r :call Importrand()<CR>
-function Importrand()
-    call append('.',"import random as r")
-endfunction
-
 "Copy Right Declaration
-"Add and Update the head
-map <F4> :call TitleDet()<cr>
-function AddTitle()
-call append(0, " /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-call append(1, " #        .---.         .-----------  ")
-call append(2, " #       /     \\  __  /    ------    ")
-call append(3, " #      / /     \\(  )/    -----   (`-')  _ _(`-')              <-. (`-')_            ")
-call append(4, " #     //////    '\\/ `   ---      ( OO).-/( (OO ).->     .->      \\( OO) )     .->   ")
-call append(5, " #    //// / //  \:   \: ---      (,------. \\    .'_ (`-')----. ,--./ ,--/  ,--.'  ,-.")
-call append(6, " #   // /   /  / `\\/ \'--         |  .---' '`'-..__)( OO).-. ' |   \\ |  | (`-')'.'  /")
-call append(7, " #  //          //\.\.\\\\          (|  '--.  |  |  ' |( _) | | | |  . '|  |)(OO \\    / ")
-call append(8, " # ============UU====UU====      |  .--'  |  |  / : \\|  |)| | |  |\\    |  |  /   /) ")
-call append(9, " #             '//||\\\\`          |  `---. |  '-'  /  '  '-' ' |  | \\   |  `-/   /`  ")
-call append(10, " #               ''``            `------' `------'    `-----' `--'  `--'    `--'    ")
-call append(11, " # ##########################################################################################")
-call append(12, " # ")
-call append(13, " # Author: edony - edonyzpc@gmail.com                 ")
-call append(14, " # ")
-call append(15, " # twitter : @edonyzpc                                ")
-call append(16, " # ")
-call append(17, " # Last modified: ".strftime("%Y-%m-%d %H:%M"))
-call append(18, " # ")
-call append(19, " # Filename: ".expand("%:t"))
-call append(20, " # ")
-call append(21, " # Description: All Rights Are Reserved                 ")
-call append(22, " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/ ")
-echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
-endfunction
-"更新最近修改时间和文件名
-function UpdateTitle()
-    normal m'
-    execute '/# *Last modified:/s@:.*$@\=strftime(":\t%Y-%m-%d %H:%M")@'
-    normal ''
-    normal mk
-    execute '/# *Filename:/s@:.*$@\=":\t\t".expand("%:t")@'
-    execute "noh"
-    normal 'k
-    echohl WarningMsg | echo "Successful in updating the copy right." | echohl None
-endfunction
-"判断前10行代码里面，是否有Last modified这个单词，
-"如果没有的话，代表没有添加过作者信息，需要新添加；
-"如果有的话，那么只需要更新即可
-function TitleDet()
-    let n=11
-    "默认为添加
-    while n < 22
-        let line = getline(n)
-        if line =~ '^\ #\s*\S*Last\smodified:\S*.*$'
-            call UpdateTitle()
-            return
-        endif
-        let n=n+1
-    endwhile
-    call AddTitle()
-endfunction
+"Add and Update the title
+"for C/C++
+map <F4> :call CTitleDet()<cr>
+"for Python
+map <F3> :call PyTitleDet()<CR>
 
-function PythonTitle()
-    call append(0,"#!/usr/bin/env python")
-    call append(1,"# -*- coding: utf-8 -*-")
-    call append(2," #        .---.         .-----------  ")
-    call append(3," #       /     \\  __  /    ------    ")
-    call append(4," #      / /     \\(  )/    -----   (`-')  _ _(`-')              <-. (`-')_            ")
-    call append(5," #     //////    '\\/ `   ---      ( OO).-/( (OO ).->     .->      \\( OO) )     .->   ")
-    call append(6," #    //// / //  \:   \: ---      (,------. \\    .'_ (`-')----. ,--./ ,--/  ,--.'  ,-.")
-    call append(7," #   // /   /  / `\\/ \'--         |  .---' '`'-..__)( OO).-. ' |   \\ |  | (`-')'.'  /")
-    call append(8," #  //          //\.\.\\\\          (|  '--.  |  |  ' |( _) | | | |  . '|  |)(OO \\    / ")
-    call append(9," # ============UU====UU====      |  .--'  |  |  / : \\|  |)| | |  |\\    |  |  /   /) ")
-    call append(10," #             '//||\\\\`          |  `---. |  '-'  /  '  '-' ' |  | \\   |  `-/   /`  ")
-    call append(11," #               ''``            `------' `------'    `-----' `--'  `--'    `--'    ")
-    call append(12," # ##########################################################################################")
-    call append(13," # ")
-    call append(14," # Author: edony - edonyzpc@gmail.com                 ")
-    call append(15," # ")
-    call append(16," # twitter : @edonyzpc                                ")
-    call append(17," # ")
-    call append(18," # Last modified: ".strftime("%Y-%m-%d %H:%M"))
-    call append(19," # ")
-    call append(20," # Filename: ".expand("%:t"))
-    call append(21," # ")
-    call append(22," # Description: All Rights Are Reserved                 ")
+function PyImport()
+    call append('59',"import numpy as np")
+    call append('60',"import scipy as sp")
+    call append('61',"import math as m")
+    call append('62',"import matplotlib as mpl")
+    call append('63',"import matplotlib.pyplot as plt")
+    call append('64',"from mpl_toolkits.mplot3d import Axes3D as Ax3")
+    call append('65',"from scipy import stats as st")
+    call append('66',"from matplotlib import cm")
+    call append('67'," ")
+endfunction
+function PyColor()
     call append(23,"class pcolor:")
     call append(24,"    ''' This class is for colored print in the python interpreter!")
-    call append(25,"    \"py\" call Addpy() function to add this class which is defined")
+    call append(25,"    \"F2\" call Addpy() function to add this class which is defined")
     call append(26,"    in the .vimrc for vim Editor.")
     call append(27,"    ")
     call append(28,"    STYLE: \\033['display model';'foreground';'background'm")
@@ -410,24 +321,17 @@ function PythonTitle()
     call append(50,"    \\033[1;31;40m   <!--1-highlight;31-foreground red;40-background black-->")
     call append(51,"    \\033[0m         <!--set all into default-->")
     call append(52,"    '''")
-    call append(53,"    WARN = '\\033[0;37;41m'")
-    call append(54,"    NOTE = '\\033[4;32m'")
-    call append(55,"    ENDC = '\\033[0m'")
-    call append(56,"    def disable(self):")
-    call append(57,"        self.ENDC = ''")
-    call append(58,"        self.WARNING = ''")
-    call append(59," ")
-    call append(60,"import numpy as np")
-    call append(61,"import scipy as sp")
-    call append(62,"import math as m")
-    call append(63,"import matplotlib as mpl")
-    call append(64,"import matplotlib.pyplot as plt")
-    call append(65,"from mpl_toolkits.mplot3d import Axes3D as Ax3")
-    call append(66,"from scipy import stats as st")
-    call append(67,"from matplotlib import cm")
-    call append(68," ")
+    call append(53,"    WARNING = '\\033[0;37;41m'")
+    call append(54,"    ENDC = '\\033[0m'")
+    call append(55,"    def disable(self):")
+    call append(56,"        self.ENDC = ''")
+    call append(57,"        self.WARNING = ''")
+    call append(58," ")
 endfunction
-function AddPython()
+"判断前20行代码里面，是否有Last modified这个单词，
+"如果没有的话，代表没有添加过作者信息，需要新添加；
+"如果有的话，那么只需要更新即可
+function CTitleDet()
     let n=11
     "默认为添加
     while n < 22
@@ -438,6 +342,82 @@ function AddPython()
         endif
         let n=n+1
     endwhile
-    call PythonTitle()
+    call CTitle()
 endfunction
-
+function PyTitleDet()
+    let n=11
+    "默认为添加
+    while n < 22
+        let line = getline(n)
+        if line =~ '^\ #\s*\S*Last\smodified:\S*.*$'
+            call UpdateTitle()
+            return
+        endif
+        let n=n+1
+    endwhile
+    call PyTitle()
+    call PyColor()
+    call PyImport()
+endfunction
+"更新最近修改时间和文件名
+function UpdateTitle()
+    normal m'
+    execute '/# *Last modified:/s@:.*$@\=strftime(":\t%Y-%m-%d %H:%M")@'
+    normal ''
+    normal mk
+    execute '/# *Filename:/s@:.*$@\=":\t\t".expand("%:t")@'
+    execute "noh"
+    normal 'k
+    echohl WarningMsg | echo "Successful in updating the copy right." | echohl None
+endfunction
+function PyTitle()
+    call append(0,"#!/usr/bin/env python")
+    call append(1,"# -*- coding: utf-8 -*-")
+    call append(2," #        .---.         .-----------  ")
+    call append(3," #       /     \\  __  /    ------    ")
+    call append(4," #      / /     \\(  )/    -----   (`-')  _ _(`-')              <-. (`-')_            ")
+    call append(5," #     //////    '\\/ `   ---      ( OO).-/( (OO ).->     .->      \\( OO) )     .->   ")
+    call append(6," #    //// / //  \:   \: ---      (,------. \\    .'_ (`-')----. ,--./ ,--/  ,--.'  ,-.")
+    call append(7," #   // /   /  / `\\/ \'--         |  .---' '`'-..__)( OO).-. ' |   \\ |  | (`-')'.'  /")
+    call append(8," #  //          //\.\.\\\\          (|  '--.  |  |  ' |( _) | | | |  . '|  |)(OO \\    / ")
+    call append(9," # ============UU====UU====      |  .--'  |  |  / : \\|  |)| | |  |\\    |  |  /   /) ")
+    call append(10," #             '//||\\\\`          |  `---. |  '-'  /  '  '-' ' |  | \\   |  `-/   /`  ")
+    call append(11," #               ''``            `------' `------'    `-----' `--'  `--'    `--'    ")
+    call append(12," # ######################################################################################")
+    call append(13," # ")
+    call append(14," # Author: edony - edonyzpc@gmail.com                 ")
+    call append(15," # ")
+    call append(16," # twitter : @edonyzpc                                ")
+    call append(17," # ")
+    call append(18," # Last modified: ".strftime("%Y-%m-%d %H:%M"))
+    call append(19," # ")
+    call append(20," # Filename: ".expand("%:t"))
+    call append(21," # ")
+    call append(22," # Description: All Rights Are Reserved                 ")
+endfunction
+function CTitle()
+call append(0, " /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+call append(1, " #        .---.         .-----------  ")
+call append(2, " #       /     \\  __  /    ------    ")
+call append(3, " #      / /     \\(  )/    -----   (`-')  _ _(`-')              <-. (`-')_            ")
+call append(4, " #     //////    '\\/ `   ---      ( OO).-/( (OO ).->     .->      \\( OO) )     .->   ")
+call append(5, " #    //// / //  \:   \: ---      (,------. \\    .'_ (`-')----. ,--./ ,--/  ,--.'  ,-.")
+call append(6, " #   // /   /  / `\\/ \'--         |  .---' '`'-..__)( OO).-. ' |   \\ |  | (`-')'.'  /")
+call append(7, " #  //          //\.\.\\\\          (|  '--.  |  |  ' |( _) | | | |  . '|  |)(OO \\    / ")
+call append(8, " # ============UU====UU====      |  .--'  |  |  / : \\|  |)| | |  |\\    |  |  /   /) ")
+call append(9, " #             '//||\\\\`          |  `---. |  '-'  /  '  '-' ' |  | \\   |  `-/   /`  ")
+call append(10, " #               ''``            `------' `------'    `-----' `--'  `--'    `--'    ")
+call append(11, " # ##########################################################################################")
+call append(12, " # ")
+call append(13, " # Author: edony - edonyzpc@gmail.com                 ")
+call append(14, " # ")
+call append(15, " # twitter : @edonyzpc                                ")
+call append(16, " # ")
+call append(17, " # Last modified: ".strftime("%Y-%m-%d %H:%M"))
+call append(18, " # ")
+call append(19, " # Filename: ".expand("%:t"))
+call append(20, " # ")
+call append(21, " # Description: All Rights Are Reserved                 ")
+call append(22, " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/")
+echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
+endfunction
