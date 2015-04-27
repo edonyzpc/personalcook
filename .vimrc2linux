@@ -278,6 +278,8 @@ let delimitMate_expand_cr=1
 map <F4> :call CTitleDet()<cr>
 "for Python
 map <F3> :call PyTitleDet()<CR>
+"for lua
+map <F5> :call LuaTitleDet()<CR>
 
 function PyImport()
     call append('59',"import numpy as np")
@@ -359,6 +361,19 @@ function PyTitleDet()
     call PyColor()
     call PyImport()
 endfunction
+function LuaTitleDet()
+    let n=11
+    "默认为添加
+    while n < 22
+        let line = getline(n)
+        if line =~ '^\ #\s*\S*Last\smodified:\S*.*$'
+            call UpdateTitle()
+            return
+        endif
+        let n=n+1
+    endwhile
+    call LuaTitle()
+endfunction
 "更新最近修改时间和文件名
 function UpdateTitle()
     normal m'
@@ -420,4 +435,30 @@ call append(20, " # ")
 call append(21, " # Description: All Rights Are Reserved                 ")
 call append(22, " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/")
 echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
+endfunction
+function LuaTitle()
+    call append(0,"#!/usr/bin/env lua")
+    call append(1,"--[[-*- coding: utf-8 -*-")
+    call append(2," #        .---.         .-----------  ")
+    call append(3," #       /     \\  __  /    ------    ")
+    call append(4," #      / /     \\(  )/    -----   (`-')  _ _(`-')              <-. (`-')_            ")
+    call append(5," #     //////    '\\/ `   ---      ( OO).-/( (OO ).->     .->      \\( OO) )     .->   ")
+    call append(6," #    //// / //  \:   \: ---      (,------. \\    .'_ (`-')----. ,--./ ,--/  ,--.'  ,-.")
+    call append(7," #   // /   /  / `\\/ \'--         |  .---' '`'-..__)( OO).-. ' |   \\ |  | (`-')'.'  /")
+    call append(8," #  //          //\.\.\\\\          (|  '--.  |  |  ' |( _) | | | |  . '|  |)(OO \\    / ")
+    call append(9," # ============UU====UU====      |  .--'  |  |  / : \\|  |)| | |  |\\    |  |  /   /) ")
+    call append(10," #             '//||\\\\`          |  `---. |  '-'  /  '  '-' ' |  | \\   |  `-/   /`  ")
+    call append(11," #               ''``            `------' `------'    `-----' `--'  `--'    `--'    ")
+    call append(12," # ######################################################################################")
+    call append(13," # ")
+    call append(14," # Author: edony - edonyzpc@gmail.com                 ")
+    call append(15," # ")
+    call append(16," # twitter : @edonyzpc                                ")
+    call append(17," # ")
+    call append(18," # Last modified: ".strftime("%Y-%m-%d %H:%M"))
+    call append(19," # ")
+    call append(20," # Filename: ".expand("%:t"))
+    call append(21," # ")
+    call append(22," # Description: All Rights Are Reserved                 ")
+    call append(23,"--]]")
 endfunction
