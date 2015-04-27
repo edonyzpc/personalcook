@@ -19,6 +19,7 @@ hi ruler ctermfg=52
 set expandtab               "以下三个配置配合使用，设置tab和缩进空格数
 set shiftwidth=4
 set tabstop=4
+set softtabstop=4
 set nocompatible
 set cursorline
 hi CursorLine cterm=none ctermbg=52
