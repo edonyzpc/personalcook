@@ -22,7 +22,7 @@ set tabstop=4
 set softtabstop=4
 set nocompatible
 set cursorline
-hi CursorLine cterm=none ctermbg=52
+"hi CursorLine cterm=none ctermbg=52
 set number                  "显示行号
 set autoread                "文件在Vim之外修改过，自动重新读入
 set autowriteall            "自动保存
@@ -260,7 +260,7 @@ nnoremap <S-s> <C-t>
 "new-omni-completion设置自动补全功能{
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
-set completeopt=menuone,preview
+set completeopt=menu,menuone,longest,preview "optional
 "Omni menu colors
 highlight Pmenu ctermbg=darkgrey  ctermfg=black
 highlight PmenuSel ctermbg=lightgrey ctermfg=black
@@ -272,6 +272,12 @@ highlight PmenuSel ctermbg=lightgrey ctermfg=black
 "括号自动配对{
 let delimitMate_expand_cr=1
 "}
+
+"bufexplorer{
+"
+
+"conque_term{
+"
 
 "Copy Right Declaration
 "Add and Update the title
