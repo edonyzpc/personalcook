@@ -280,10 +280,20 @@ let delimitMate_expand_cr=1
 "}
 
 "bufexplorer{
-"
+let g:bufExplorerDetailedHelp=1      " Show detailed help.
+let g:bufExplorerShowDirectories=1   " Show directories.
+let g:bufExplorerSplitBelow=1        " Split new window below current.
+nmap <F8> :BufExplorerHorizontalSplit<CR>
 
 "conque_term{
-"
+function Debug()
+    :below 5split
+    :ConqueTerm bash
+endfunction
+nmap <F9> :call Debug()<CR>
+
+"instant-markdown
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 "Copy Right Declaration
 "Add and Update the title
