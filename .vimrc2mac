@@ -102,9 +102,6 @@ imap \\ <HOME>
 imap `j <DOWN>
 imap `k <DOWN>
 
-
-
-
 "set guifont=Courier_New:h10:cANSI    "设置字体,Windows中格式为set
 "guifont=Consolas:h11，在Linux中格式为set guifont=Consolas\ 11
 " Set font according to system
