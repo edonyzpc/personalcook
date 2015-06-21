@@ -53,6 +53,8 @@ set foldlevel=10           "少于10行不折叠
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 "scheme solarized
+execute pathogen#infect()
+syntax enable
 let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
