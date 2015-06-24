@@ -479,6 +479,11 @@ function CTitle()
     call append(20, " #")
     call append(21, " # Description: All Rights Are Reserved")
     call append(22, " ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/")
+    call append(23, "#include <iostream>")
+    call append(24, "")
+    call append(25, "using std::cout;")
+    call append(26, "using std::cin;")
+    call append(27, "using std::endl;")
     echohl WarningMsg | echo "Successful in adding the copyright." | echohl None
 endfunction
 function LuaTitle()
