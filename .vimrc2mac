@@ -10,22 +10,19 @@ set mouse=a                 "鼠标控制
 
 "状态栏显示设置
 "{{
-set ruler                   "右下角显示ruler
-set rulerformat=%37(%r%M%t\ %l\,%v%=%p%%%)
 set laststatus=0            "总是不显示状态行
-"let g:Powerline_dividers_override
-"set statusline=%F%m%r%h%w\ [ASCII=\%03.3b]\[HEX=\%02.2B]\ [POS=%04l,%04v]
-"set statusline+=%{strftime('\ [%d/%m/%y\ \%I:%M]')}
-" 状态栏颜色配置
-"hi statuslineNC ctermbg=255 ctermfg=249 
-"}}
-"write code
-"以下三个配置配合使用，设置tab和缩进空格数
+set ruler
+set rulerformat=%37(%r%M%t\ %l\,%v%=%p%%%)
+hi ruler ctermfg=52
+" "}}
+"
 set expandtab
 set shiftwidth=4
-set tabstop=4
 set softtabstop=4
+set tabstop=4
 set nocompatible
+set t_Co=256
+"开启光亮光标行
 set cursorline
 set number                  "显示行号
 set autoread                "文件在Vim之外修改过，自动重新读入
@@ -33,10 +30,10 @@ set autowriteall            "自动保存
 set nobackup                " 不要备份文件（根据自己需要取舍） 
 setlocal noswapfile         " 不要生成swap文件，当buffer被丢弃的时候隐藏它 
 set bufhidden=hide
+set autoindent              "Indention for file
 "设置光标位置
 set scrolloff=8
-
-
+"
 "设置','为leader快捷键
 "{{
 let mapleader = "'"
@@ -48,25 +45,28 @@ set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
 set termencoding=utf-8
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gbk       "使用utf-8或者gbk或者cp936打开文件
+"使用utf-8或者gbk或者cp936打开文件
 set fileencoding=utf-8
 set hls                     "检索时高亮显示匹配项
 set helplang=cn             "帮助系统设置为中文
 set confirm                 "在处理未保存或只读文件的时候，弹出确认
+"空格控制折叠
 set foldenable              "代码折叠
 set foldmethod=syntax       "根据语法折叠
 set foldlevel=100           "少于100行不折叠
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR> "空格控制折叠
 
-"语法颜色自定义设置
-"green
+"scheme solarized
+execute pathogen#infect()
+syntax enable
 let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
 "创建键盘映射
 "禁用方向键
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
+"inoremap <Up> <Nop>
+"inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 "保存名映射到b
@@ -80,27 +80,32 @@ nmap <S-z> <C-u>
 "退回normal模式
 imap <leader>/ <ESC>
 imap `<Tab> <ESC>
+"}}
+"
 "conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
 nnoremap <Tab>n gt
 nnoremap <Tab>m gT
 nnoremap <leader>t :tabe 
 "分屏设置
+"竖屏
 nnoremap 'f :sp<CR>
+"横屏
 nnoremap 'v :vs<CR>
+"分屏切换
 nnoremap <S-h> <C-w>h
 nnoremap <S-l> <C-w>l
-nnoremap <S-k> <C-w>k 
 nnoremap <S-j> <C-w>j
+nnoremap <S-k> <C-w>k 
 "copy into sys clip-board
 "set clipboard=unnamedplus
-vmap <C-c> "+y
-nnoremap <C-v> "+p
+"vmap <C-c> "+y
+"nnoremap <C-v> "+p
 "insert model jump
 imap \] <S-Right>
 imap \[ <S-Left>
 imap \\ <HOME>
 imap `j <DOWN>
-imap `k <DOWN>
+imap `k <UP>
 
 "set guifont=Courier_New:h10:cANSI    "设置字体,Windows中格式为set
 "guifont=Consolas:h11，在Linux中格式为set guifont=Consolas\ 11
@@ -110,7 +115,6 @@ imap `k <DOWN>
 execute pathogen#infect()
 filetype plugin indent on
 "}
-"}}
 
 "NERD_tree{
 "autocmd vimenter * NERDTree
@@ -119,7 +123,7 @@ nnoremap <F2> :NERDTreeToggle<CR>
 "打开文件后关闭nerdtree
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowBookmarks=1
-let NERDTreeWinSize=10
+let NERDTreeWinSize=20
 nmap <F7> :NERDTreeMapOpenInTab<CR>
 nmap <C-q> :NERDTreeFind<CR>
 "}
@@ -154,6 +158,7 @@ imap <C-k> <C-p>
 "}
 
 "delimitMate启用{
+"括号自动配对
 let delimitMate_expand_cr=1
 "}
 
@@ -164,7 +169,6 @@ let g:bufExplorerSplitBelow=1        " Split new window below current.
 nmap <F8> :BufExplorerHorizontalSplit<CR>
 
 "conque_term{
-let g:ConqueTerm_Color = 1
 function Debug()
     :below 5split
     :ConqueTerm bash
@@ -174,8 +178,6 @@ nmap <F9> :call Debug()<CR>
 "instant-markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
-"进行版权声明的设置
-"添加或更新头
 "Copy Right Declaration
 "Add and Update the title
 "for C/C++
