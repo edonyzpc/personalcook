@@ -11,11 +11,10 @@ set mouse=a                 "鼠标控制
 "状态栏显示设置
 "{{
 set laststatus=0            "总是不显示状态行
-set ruler
+set ruler                   "右下角显示ruler
 set rulerformat=%37(%r%M%t\ %l\,%v%=%p%%%)
-hi ruler ctermfg=52
-" "}}
-"
+"}}
+
 set expandtab
 set shiftwidth=4
 set softtabstop=4
@@ -33,7 +32,8 @@ set bufhidden=hide
 set autoindent              "Indention for file
 "设置光标位置
 set scrolloff=8
-"
+
+
 "设置','为leader快捷键
 "{{
 let mapleader = "'"
@@ -80,8 +80,6 @@ nmap <S-z> <C-u>
 "退回normal模式
 imap <leader>/ <ESC>
 imap `<Tab> <ESC>
-"}}
-"
 "conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
 nnoremap <Tab>n gt
 nnoremap <Tab>m gT
@@ -95,7 +93,7 @@ nnoremap 'v :vs<CR>
 nnoremap <S-h> <C-w>h
 nnoremap <S-l> <C-w>l
 nnoremap <S-j> <C-w>j
-nnoremap <S-k> <C-w>k 
+nnoremap <S-k> <C-w>k
 "copy into sys clip-board
 "set clipboard=unnamedplus
 "vmap <C-c> "+y
@@ -124,8 +122,8 @@ nnoremap <F2> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen=1
 let NERDTreeShowBookmarks=1
 let NERDTreeWinSize=20
-nmap <F7> :NERDTreeMapOpenInTab<CR>
-nmap <C-q> :NERDTreeFind<CR>
+"nmap <F7> :NERDTreeMapOpenInTab<CR>
+"nmap <C-q> :NERDTreeFind<CR>
 "}
 
 "taglist{
@@ -138,7 +136,7 @@ let Tlist_Exit_OnlyWindow = 1  "如果taglist是最后一个窗口，则退出vi
 let Tlist_Use_Right_Window = 1         "在右侧窗口中显示taglist
 let Tlist_GainFocus_On_ToggleOpen = 1  "打开taglist时，光标保留在taglist窗口
 let Tlist_WinWidth=20
-nnoremap <F6> :Tlist<CR>
+nnoremap <F3> :Tlist<CR>
 "设置关闭和打开taglist窗口的快捷键
 nnoremap <S-a> <C-]>
 nnoremap <S-s> <C-t>
@@ -166,26 +164,30 @@ let delimitMate_expand_cr=1
 let g:bufExplorerDetailedHelp=1      " Show detailed help.
 let g:bufExplorerShowDirectories=1   " Show directories.
 let g:bufExplorerSplitBelow=1        " Split new window below current.
-nmap <F8> :BufExplorerHorizontalSplit<CR>
+nmap <F4> :BufExplorerHorizontalSplit<CR>
+"}
 
 "conque_term{
+let g:ConqueTerm_Color = 1
 function Debug()
     :below 5split
     :ConqueTerm bash
 endfunction
-nmap <F9> :call Debug()<CR>
+nmap <F5> :call Debug()<CR>
+"}
 
-"instant-markdown
+"instant-markdown{
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+"}
 
 "Copy Right Declaration
 "Add and Update the title
 "for C/C++
-map <F4> :call CTitleDet()<cr>
+map <F6> :call CTitleDet()<cr>
 "for Python
-map <F3> :call PyTitleDet()<CR>
+map <F7> :call PyTitleDet()<CR>
 "for lua
-map <F5> :call LuaTitleDet()<CR>
+map <F8> :call LuaTitleDet()<CR>
 
 function PyImport()
     call append(26,"import scipy as sp")
