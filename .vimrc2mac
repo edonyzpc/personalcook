@@ -180,6 +180,10 @@ nmap <F5> :call Debug()<CR>
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 "}
 
+"vim Lisp Environment(slimv){
+let g:slimv_swank_cmd = '!osascript -e "tell application \"Terminal\" to do script \"sbcl --load /Users/edony/.vim/bundle/slimv/slime/start-swank.lisp\""'
+"}
+
 "Copy Right Declaration
 "Add and Update the title
 "for C/C++
