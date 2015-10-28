@@ -180,6 +180,10 @@ nmap <F5> :call Debug()<CR>
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 "}
 
+"pyflakes-vim{
+let g:pyflakes_use_quickfix = 1
+"}
+
 "Copy Right Declaration
 "Add and Update the title
 "for C/C++
