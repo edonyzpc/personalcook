@@ -184,6 +184,10 @@ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 let g:slimv_swank_cmd = '!osascript -e "tell application \"Terminal\" to do script \"sbcl --load /Users/edony/.vim/bundle/slimv/slime/start-swank.lisp\""'
 "}
 
+"pyflakes-vim{
+let g:pyflakes_use_quickfix = 1
+"}
+
 "Copy Right Declaration
 "Add and Update the title
 "for C/C++
