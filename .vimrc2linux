@@ -180,8 +180,20 @@ nmap <F5> :call Debug()<CR>
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 "}
 
+"lisp environment{
+let g:slimv_swank_cmd = '! xterm -e sbcl --load /home/edony/.vim/bundle/slimv/slime/start-swank.lisp &'
+"}
+
 "pyflakes-vim{
 let g:pyflakes_use_quickfix = 1
+"}
+
+"SimpylFold{
+set foldmethod=indent
+set foldlevel=99
+let g:SimpylFold_docstring_preview = 1
+autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
+autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 "}
 
 "Copy Right Declaration
@@ -194,14 +206,14 @@ map <F7> :call PyTitleDet()<CR>
 map <F8> :call LuaTitleDet()<CR>
 
 function PyImport()
-    call append(26,"import scipy as sp")
-    call append(27,"import math as m")
-    call append(28,"import matplotlib as mpl")
-    call append(29,"import matplotlib.pyplot as plt")
-    call append(30,"from mpl_toolkits.mplot3d import Axes3D as Ax3")
-    call append(31,"from scipy import stats as st")
-    call append(32,"from matplotlib import cm")
-    call append(33,"import numpy as np")
+    call append(26,"#import scipy as sp")
+    call append(27,"#import math as m")
+    call append(28,"#import matplotlib as mpl")
+    call append(29,"#import matplotlib.pyplot as plt")
+    call append(30,"#from mpl_toolkits.mplot3d import Axes3D as Ax3")
+    call append(31,"#from scipy import stats as st")
+    call append(32,"#from matplotlib import cm")
+    call append(33,"#import numpy as np")
     call append(34,"")
 endfunction
 function PyColor()
