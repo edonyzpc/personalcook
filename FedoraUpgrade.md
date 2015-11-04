@@ -120,3 +120,7 @@
 
 
 ## fedup                                                   04/16/2015                                                FEDUP(8)
+***P.S.***<br>
+*defup is abandoned and replaced by dnf system-upgrade.*
+
+*Please try dnf [`system-upgrade`](http://fedoraproject.org/wiki/Changes/DNF_System_Upgrades)*
