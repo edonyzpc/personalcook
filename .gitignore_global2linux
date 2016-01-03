@@ -1,6 +1,8 @@
 #Using the global config for git ignore:
 #CL:`git config --global core.excludesfile ~/.gitignore_global`
 
+#============ ignore temparory directory ============#
+.tmp/
 #============ ignore python compile file ============#
 # Byte-compiled / optimized / DLL files
 __pycache__/
