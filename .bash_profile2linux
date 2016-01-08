@@ -23,7 +23,8 @@ fi
 #   ------------------------------------------------------------
 #export PS1="________________________________________________________________________________\n| \w @ \h (\u) \n| => "
 #export PS2="| => "
-export PS1='[\e[32m\u@\e[36m\h \e[35m\W\e[37m:\e[31m\#\e[0m]\$'
+# To Avoid Needless Counting Enclose Color-Code Into '\[\]'
+export PS1='[\[\e[32m\]\u@\[\e[36m\]\h \[\e[35m\]\W\[\e[37m\]:\[\e[31m\]\#\[\e[0m\]]\$ '
 
 #   Set Paths
 #   ------------------------------------------------------------
@@ -311,3 +312,7 @@ httpDebug () { /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect
 #   -----------------------------------------------------
 #       Note that the command name can be specified via a regex
 #       E.g. findPid
+
+######################################################################################
+#sh /home/edony/code/github/toolkitem/emtools/emsh/anthelion.sh $(date +%Y-%m-%d-%H-%M-%S)
+sh anthelion $(date +%Y-%m-%d-%H-%M-%S)
