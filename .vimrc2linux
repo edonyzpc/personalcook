@@ -127,9 +127,9 @@ let NERDTreeWinSize=20
 "}
 
 "taglist{
-let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'    "设置ctags命令的位置
-set tags+=~/.vim/systags/tags
-set tags+=./tags                                 "tags位置设置
+let Tlist_Ctags_Cmd = '/usr/bin/ctags'  "设置ctags命令的位置
+set tags+=~/.vim/systags/tags   "ctags -R -f ~/.vim/systags /usr/include /usr/local/include
+set tags+=./tags    "tags位置设置
 set autochdir
 let Tlist_Show_One_File = 1  "只显示当前文件的taglist，默认是显示多个
 let Tlist_Exit_OnlyWindow = 1  "如果taglist是最后一个窗口，则退出vim
@@ -180,7 +180,7 @@ nmap <F5> :call Debug()<CR>
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 "}
 
-"lisp environment{
+"Vim Lisp Environment(slimv) for Linux{
 let g:slimv_swank_cmd = '! xterm -e sbcl --load /home/edony/.vim/bundle/slimv/slime/start-swank.lisp &'
 "}
 
@@ -196,6 +196,16 @@ autocmd BufWinEnter *.py setlocal foldexpr=SimpylFold(v:lnum) foldmethod=expr
 autocmd BufWinLeave *.py setlocal foldexpr< foldmethod<
 "}
 
+"Racket&Scheme{
+if has("autocmd")
+    au BufReadPost *.rkt,*.rktl set filetype=scheme
+endif
+if has("autocmd")
+    au BufReadPost *.rkt,*.rktl set filetype=racket
+    au filetype racket set lisp
+    au filetype racket set autoindent
+endif
+"
 "Copy Right Declaration
 "Add and Update the title
 "for C/C++
@@ -327,7 +337,7 @@ function UpdateTitle()
     echohl WarningMsg | echo "Successful in updating the copy right." | echohl None
 endfunction
 function PyTitle()
-    call append(0,"#!/usr/bin/env python")
+    call append(0,"#!/usr/bin/env python3")
     call append(1,"# -*- coding: utf-8 -*-")
     call append(2,"r\"\"\"")
     call append(3," #        .---.         .-----------")
