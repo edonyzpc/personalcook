@@ -1,0 +1,86 @@
+# Act like Vim
+set-window-option -g mode-keys vi
+bind-key h select-pane -L
+bind-key j select-pane -D
+bind-key k select-pane -U
+bind-key l select-pane -R
+
+# Look good
+set-option -g default-terminal "screen-256color"
+
+# fiddle with colors of status bar
+set -g status-fg white
+set -g status-bg yellow
+
+# fiddle with colors of inactive windows
+setw -g window-status-fg cyan
+setw -g window-status-bg colour234
+setw -g window-status-attr dim
+
+# change color of active window
+setw -g window-status-current-fg white
+setw -g window-status-current-bg colour88
+setw -g window-status-current-attr bright
+#
+# set color of regular and active panes
+set -g pane-border-fg colour238
+set -g pane-border-bg default
+set -g pane-active-border-fg green
+set -g pane-active-border-bg default
+
+# set color of command line
+set -g message-fg white
+set -g message-bg colour22
+set -g message-attr bright
+
+# configure contents of status bar
+set -g status-utf8 on
+set -g status-left-length 40
+set -g status-left "#[fg=blue] \[#S\] "
+set -g status-left-attr bright
+set -g status-right "#[fg=cyan] #h | %d %b %R"
+set -g status-right-attr bright
+set -g status-justify left
+setw -g monitor-activity on
+set -g visual-activity on
+
+# Enable mouse support (works in iTerm)
+#set-window-option -g mode-mouse on
+#set-option -g mouse-select-pane on
+#set-option -g mouse-resize-pane on
+#set-option -g mouse-select-window on
+
+# set up layouts
+# set main-pane-width 130
+
+# Change cursor in vim to distinguish between insert and command mode
+#set-option -g terminal-overrides '*88col*:colors=88,*256col*:colors=256,xterm*:XT:Ms=\E]52;%p1%s;%p2%s\007:Cc=\E]12;%p1%s\007:Cr=\E]112\007:Cs=\E]50;CursorShape=%?%p1%{3}%<%t%{0}%e%p1%{2}%-%;%d\007'
+
+# scrollback buffer size increase
+set -g history-limit 500000
+
+# C-b C-b will swap to last used window
+bind-key C-b last-window
+
+# Start tab numbering at 1
+set -g base-index 1
+
+# Allows for faster key repetition
+set -s escape-time 0
+
+# Highlight active window
+set-window-option -g window-status-current-bg red
+
+# use different keys to split vertical and horizonal
+bind | split-window -h
+bind - split-window -v
+
+# Change cursor in vim to distinguish between insert and command mode
+# Use in conjunciton with tmux-cursors.vim
+set-option -g terminal-overrides '*88col*:colors=88,*256col*:colors=256,xterm*:XT:Ms=\E]52;%p1%s;%p2%s\007:Cc=\E]12;%p1%s\007:Cr=\E]112\007:Cs=\E]50;CursorShape=%?%p1%{3}%<%t%{0}%e%p1%{2}%-%;%d\007'
+
+# use C-b v to paste the tmux buffer
+bind v paste-buffer
+
+# reload config
+bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
