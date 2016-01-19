@@ -19,12 +19,13 @@ root: ~/
 # tmux_command: byobu
 
 windows:
-  - main:
-      layout: main-vertical
-      panes:
-        - clear
-        - clear
-        - clear
-  - dev: cd ~/code/github/;clear
-  - pyenv: bpython3
-  - logs: anthelion $(date +%Y-%m-%d-%H-%M-%S) #tail -f log/development.log
+    - monitor: clear;anthelion $(date +%Y-%m-%d-%H-%M-%S)
+    - main:
+        layout: main-vertical
+        panes:
+            - sleep 1;clear #empty
+            - sleep 1;clear #empty
+            - top
+    - dev: cd ~/code/github/;clear
+    - pyenv: bpython3
+#  - logs: anthelion $(date +%Y-%m-%d-%H-%M-%S) #tail -f log/development.log
