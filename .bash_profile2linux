@@ -328,3 +328,15 @@ httpDebug () { /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect
 #
 # tmuxinator alias
 alias emux='tmuxinator start edony'
+alias glance='glances --disable-network --disable-diskio --disable-process --disable-fs'
+
+function ebmon()
+{
+    mac="Darwin"
+    linux="Linux"
+    if [ $mac == $(uname -s) ]; then
+        bmon -p en0
+    elif [ $linux == $(uname -s)]; then
+        bmon -p enp0s3
+    fi
+}

@@ -20,12 +20,18 @@ root: ~/
 
 windows:
     - monitor: clear;anthelion $(date +%Y-%m-%d-%H-%M-%S)
-    - main:
+    - main: tmux select-pane -l
+        layout: 1291,143x41,0,0[143x20,0,0,0,143x10,0,21,1,143x9,0,32{71x9,0,32,2,71x9,72,32,3}]
+        panes:
+            - ebmon #empty
+            - glance #empty
+            - top
+            -
+    - dev: vim ~/coding
+    - pyenv:
         layout: main-vertical
         panes:
-            - sleep 1;clear #empty
-            - sleep 1;clear #empty
-            - top
-    - dev: cd ~/code/github/;clear
-    - pyenv: bpython3
+            - bpython3
+            -
+            -
 #  - logs: anthelion $(date +%Y-%m-%d-%H-%M-%S) #tail -f log/development.log
