@@ -20,14 +20,14 @@ root: ~/
 
 windows:
     - monitor: clear;anthelion $(date +%Y-%m-%d-%H-%M-%S)
-    - main: tmux select-pane -l
-        layout: 1291,143x41,0,0[143x20,0,0,0,143x10,0,21,1,143x9,0,32{71x9,0,32,2,71x9,72,32,3}]
+    - main:
+        layout: 911c,130x41,0,0[130x24,0,0,6,130x6,0,25,7,130x9,0,32{65x9,0,32,8,64x9,66,32,9}]
         panes:
             - ebmon #empty
-            - glance #empty
+            - sysgla #empty
             - top
             -
-    - dev: vim ~/coding
+    - dev: cd ~/coding;vim ./
     - pyenv:
         layout: main-vertical
         panes:
