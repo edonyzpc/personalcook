@@ -19,7 +19,7 @@ root: ~/
 # tmux_command: byobu
 
 windows:
-    - monitor: clear;anthelion $(date +%Y-%m-%d-%H-%M-%S)
+    - monitor: clear;anthelion
     - main:
         layout: 42f4,126x45,0,0[126x24,0,0,0,126x9,0,25,1,126x10,0,35{63x10,0,35,2,62x10,64,35,3}] # main-vertical
         panes:
@@ -27,7 +27,7 @@ windows:
             - sysgla #empty
             - top
             -
-    - dev: vim ~/code/github/
+    - dev: cd ~/code/github/;vim ./
     - pyenv:
         layout: main-vertical
         panes:
