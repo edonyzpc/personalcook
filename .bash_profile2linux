@@ -341,3 +341,5 @@ function ebmon()
         bmon -p enp0s3
     fi
 }
+# kill all tmux window
+alias tmkill='tmux kill-window -a'
