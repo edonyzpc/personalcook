@@ -76,3 +76,5 @@ target/
 *.i*86
 *.x86_64
 *.hex
+#============ ignore Mac Find Cache ============#
+.DS_Store
