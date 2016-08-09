@@ -26,8 +26,8 @@ set cursorline
 set number                  "显示行号
 set autoread                "文件在Vim之外修改过，自动重新读入
 set autowriteall            "自动保存
-set nobackup                " 不要备份文件（根据自己需要取舍） 
-setlocal noswapfile         " 不要生成swap文件，当buffer被丢弃的时候隐藏它 
+set nobackup                " 不要备份文件（根据自己需要取舍）
+setlocal noswapfile         " 不要生成swap文件，当buffer被丢弃的时候隐藏它
 set bufhidden=hide
 set autoindent              "Indention for file
 "设置光标位置
@@ -83,7 +83,7 @@ imap `<Tab> <ESC>
 "conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
 nnoremap <Tab>n gt
 nnoremap <Tab>m gT
-nnoremap <leader>t :tabe 
+nnoremap <leader>t :tabe
 "分屏设置
 "竖屏
 nnoremap 'f :sp<CR>
@@ -231,7 +231,7 @@ function PyColor()
     call append(37,"    \"F3\" call Addpy() function to add this class which is defined")
     call append(38,"    in the .vimrc for vim Editor.\"\"\"")
     call append(39,"    def __init__(self):")
-    call append(40,"        self.self_doc = r\"\"\"")
+    call append(40,"        self.self_doc = \"\"\"")
     call append(41,"        STYLE: \\033['display model';'foreground';'background'm")
     call append(42,"        DETAILS:")
     call append(43,"        FOREGROUND        BACKGOUND       COLOR")
@@ -338,7 +338,7 @@ endfunction
 function PyTitle()
     call append(0,"#!/usr/bin/env python3")
     call append(1,"# -*- coding: utf-8 -*-")
-    call append(2,"r\"\"\"")
+    call append(2,"\"\"\"")
     call append(3," #        .---.         .-----------")
     call append(4," #       /     \\  __  /    ------")
     call append(5," #      / /     \\(  )/    -----   (`-')  _ _(`-')              <-. (`-')_")
