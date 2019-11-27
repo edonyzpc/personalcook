@@ -36,11 +36,21 @@ fi
 #   ------------------------------------------------------------
 #    export PS1="________________________________________________________________________________\n| \w @ \h (\u) \n| => "
 #    export PS2="| => "
+    export PS1='[\[\e[32m\]\u@\[\e[36m\]\h \[\e[35m\]\W\[\e[37m\]:\[\e[31m\]\#\[\e[0m\]]\$ '
 
 #   Set Paths
 #   ------------------------------------------------------------
     export PATH="$PATH:/usr/local/bin"
     export PATH="/usr/local/Cellar/git:/usr/local/git/bin:/sw/bin:/usr/local/bin:/usr/local:/usr/local/sbin:/usr/local/mysql/bin:$PATH"  #/usr/local/Cellar/git is the path manage for brew git
+    if [[ ! "$PATH" == */Users/edony/bin* ]]; then
+      export PATH="${PATH:+${PATH}:}/Users/edony/bin"
+    fi
+    # for go
+    export GOPATH="/Users/edony/go"
+    export GOBIN="${GOPATH}/bin"
+    export PATH="${PATH}:${GOBIN}"
+    # for rust
+    export PATH="${PATH}:$HOME/.cargo/bin"
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
 #   ------------------------------------------------------------
