@@ -27,6 +27,7 @@ export LC_ALL=en_US.utf-8
 export LANG=en_US.utf-8
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+alias rm='rm -iv'
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation

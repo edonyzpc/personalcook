@@ -51,6 +51,10 @@ windows:
       #layout:
       panes:
         -
+  - docker:
+      #layout:
+      panes:
+        -
   - monitor:
       layout: f821,143x39,0,0[143x27,0,0{106x27,0,0,2,36x27,107,0,3},143x11,0,28,4]
       panes:
