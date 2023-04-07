@@ -1,6 +1,6 @@
 FROM --platform=arm64 ubuntu:latest
 
-RUN apt update && apt install openssh-server sudo git vim -y
+RUN apt update && apt install openssh-server sudo git vim make -y
 
 # install node 18.x(LTS)
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - && sudo apt-get install -y nodejs
