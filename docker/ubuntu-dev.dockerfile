@@ -1,13 +1,15 @@
 FROM --platform=arm64 ubuntu:latest
 
-RUN apt update && apt install openssh-server sudo git vim make -y
+RUN apt update && apt install openssh-server sudo git vim make curl -y
 
 # install node 18.x(LTS)
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash - && sudo apt-get install -y nodejs
+# install yarn
+RUN npm install --global yarn
 
 RUN echo "export PS1='[\[\e[32m\]\u@\[\e[36m\]\h \[\e[35m\]\W\[\e[37m\]:\[\e[31m\]\#\[\e[0m\]]\$ \n>> '" >> /root/.bashrc
 
-# add init git ssh config
+# add init git ssh config tools
 RUN echo '#!/bin/bash
 mkdir -p /root/.ssh && cp /root/ssh-host/id_rsa_ob /root/.ssh/ && cp /root/ssh-host/id_rsa_ob.pub /root/.ssh/ && cp /root/ssh-host/config /root/.ssh/' > /root/init-git-ssh.sh
 RUN chmod u+x /root/init-git-ssh.sh
